@@ -20,7 +20,7 @@ export default function ProjectCard({ project, expanded, onToggle }) {
 
     return (
         <article
-            className={`h-full md:min-h-[175px] p-4 md:p-6 rounded-2xl border shadow-sm transition-all duration-300 flex flex-col
+            className={`h-full md:min-h-[135px] p-4 md:p-6 rounded-2xl border shadow-sm transition-all duration-300 flex flex-col
                 ${expanded
                     ? "bg-gray-50 border-gray-300 dark:bg-brand-active dark:border-brand-active-border"
                     : "bg-white border-gray-200 dark:bg-[#1E2730] dark:border-brand-border hover:bg-gray-100 dark:hover:bg-brand-hover-subtle hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)]"
