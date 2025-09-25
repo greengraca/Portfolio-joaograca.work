@@ -1,0 +1,55 @@
+{
+  "company-site": {
+    "id": "company-site",
+    "cover": "/images/projects/company-site/cover",
+    "images": [
+      "/images/projects/company-site/blog-news",
+      "/images/projects/company-site/choosing-gfleck",
+      "/images/projects/company-site/company-portfolio"
+    ]
+  },
+  "crypto-tool": {
+    "id": "crypto-tool",
+    "cover": "/images/projects/crypto-tool/frogfolio-dashboard",
+    "images": [
+      "/images/projects/crypto-tool/frogfolio-flipping-dashboard",
+      "/images/projects/crypto-tool/frogfolio-flipping-individual",
+      "/images/projects/crypto-tool/frogfolio-reward-center",
+      "/images/projects/crypto-tool/frogfolio-search"
+    ]
+  },
+  "gen-art-svg": {
+    "id": "gen-art-svg",
+    "cover": "/images/projects/gen-art-svg/1",
+    "images": [
+      "/images/projects/gen-art-svg/2",
+      "/images/projects/gen-art-svg/3",
+      "/images/projects/gen-art-svg/4",
+      "/images/projects/gen-art-svg/5",
+      "/images/projects/gen-art-svg/6",
+      "/images/projects/gen-art-svg/7"
+    ]
+  },
+  "mtg-bot": {
+    "id": "mtg-bot",
+    "cover": "/images/projects/mtg-bot/cover",
+    "images": [
+      "/images/projects/mtg-bot/1",
+      "/images/projects/mtg-bot/2",
+      "/images/projects/mtg-bot/3",
+      "/images/projects/mtg-bot/4"
+    ]
+  },
+  "social-designs": {
+    "id": "social-designs",
+    "cover": "/images/projects/social-designs/cover",
+    "images": [
+      "/images/projects/social-designs/1",
+      "/images/projects/social-designs/2",
+      "/images/projects/social-designs/3",
+      "/images/projects/social-designs/5",
+      "/images/projects/social-designs/6",
+      "/images/projects/social-designs/7"
+    ]
+  }
+}
