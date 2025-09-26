@@ -10,6 +10,7 @@
     "img:build": "node scripts/optimize-and-manifest.mjs"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "lucide-react": "^0.544.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

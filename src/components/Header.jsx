@@ -1,10 +1,15 @@
 import { useState, useRef, useEffect } from "react"
 import ThemeToggle from "./ThemeToggle"
+import LanguageToggle from "./LanguageToggle"
+import { useI18n } from "../i18n/I18nProvider";
+
 
 export default function Header() {
     const [open, setOpen] = useState(false)
     const btnRef = useRef(null)
     const popRef = useRef(null)
+    const { t } = useI18n();
+
 
     useEffect(() => {
         if (!open) return
@@ -33,8 +38,9 @@ export default function Header() {
 
                     {/* Desktop nav */}
                     <nav className="hidden md:flex items-center gap-6">
-                        <a href="#projects" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">Projects</a>
-                        <a href="#contact" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">Contact</a>
+                        <a href="#projects" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">{t("common.projects")}</a>
+                        <a href="#contact" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">{t("common.contact")}</a>
+                        <LanguageToggle />
                         <ThemeToggle />
                     </nav>
 
@@ -69,7 +75,7 @@ export default function Header() {
                                     className="block px-7 py-2.5 text-sm text-gray-800 dark:text-gray-200
                  hover:bg-gray-100 dark:hover:bg-brand-hover-subtle dark:hover:text-white"
                                 >
-                                    Projects
+                                    {t("common.projects")}
                                 </a>
                                 <a
                                     href="#contact"
@@ -79,11 +85,14 @@ export default function Header() {
                  hover:bg-gray-100 dark:hover:bg-brand-hover-subtle dark:hover:text-white
                  border-t border-brand-border/60"
                                 >
-                                    Contact
+                                    {t("common.contact")}
                                 </a>
 
                                 <div className="border-t border-brand-border/60 px-4 pt-3 pb-3">
-                                    <ThemeToggle small iconOnly className="w-full" />
+                                    <div className="flex items-center justify-center gap-2">
+                                        <LanguageToggle small />
+                                        <ThemeToggle small iconOnly />
+                                    </div>
                                 </div>
                             </div>
                         )}

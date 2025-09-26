@@ -2,10 +2,11 @@ import { useState, useMemo } from "react"
 import projects from "../data/projects"
 import ProjectCard from "./ProjectCard"
 import useReveal from "../hooks/useReveal"
+import { useI18n } from "../i18n/I18nProvider";
 
 export default function ProjectList() {
-  useReveal() 
-
+  useReveal()
+  const { t } = useI18n();
   const [openId, setOpenId] = useState(null)
   const openIndex = useMemo(
     () => projects.findIndex(p => p.id === openId),
@@ -14,7 +15,7 @@ export default function ProjectList() {
 
   return (
     <section id="projects" className="mb-14 md:mb-20">
-      <h3 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-8">Highlighted projects</h3>
+      <h3 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-8">{t("sections.projects")}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {projects.map((p, index) => {
           const isExpanded = openId === p.id

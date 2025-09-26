@@ -1,31 +1,31 @@
 import { SiLinkedin, SiGithub } from "react-icons/si"
 import { useEffect, useRef } from "react"
 import { SiReact, SiNodedotjs, SiFigma, SiPython } from "react-icons/si"
-import OutSystemsIcon from "../icons/oslogo.svg?react" 
-
+import OutSystemsIcon from "../icons/oslogo.svg?react"
+import { useI18n } from "../i18n/I18nProvider";
 
 
 const techHoverStyles = {
-  React: "hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-900/20 dark:hover:text-blue-400",
-  "Node.js": "hover:bg-green-50 hover:text-green-600 dark:hover:bg-green-900/20 dark:hover:text-green-400",
-  Figma: "hover:bg-pink-50 hover:text-pink-600 dark:hover:bg-pink-900/20 dark:hover:text-pink-400",
-  Python: "hover:bg-yellow-50 hover:text-yellow-600 dark:hover:bg-yellow-900/20 dark:hover:text-yellow-400",
-  OutSystems: "hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400",
+    React: "hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-900/20 dark:hover:text-blue-400",
+    "Node.js": "hover:bg-green-50 hover:text-green-600 dark:hover:bg-green-900/20 dark:hover:text-green-400",
+    Figma: "hover:bg-pink-50 hover:text-pink-600 dark:hover:bg-pink-900/20 dark:hover:text-pink-400",
+    Python: "hover:bg-yellow-50 hover:text-yellow-600 dark:hover:bg-yellow-900/20 dark:hover:text-yellow-400",
+    OutSystems: "hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/20 dark:hover:text-red-400",
 }
 
 const techIcons = {
-  React: SiReact,
-  "Node.js": SiNodedotjs,
-  Figma: SiFigma,
-  Python: SiPython,
-  OutSystems: OutSystemsIcon,
+    React: SiReact,
+    "Node.js": SiNodedotjs,
+    Figma: SiFigma,
+    Python: SiPython,
+    OutSystems: OutSystemsIcon,
 }
 
 function Badge({ tech }) {
-  const Icon = techIcons[tech]
-  return (
-    <span
-      className={`
+    const Icon = techIcons[tech]
+    return (
+        <span
+            className={`
         inline-flex items-center gap-1 px-2 py-0.5 text-[10px] sm:text-xs rounded-full
         border border-gray-300 dark:border-gray-700
         text-gray-600 dark:text-gray-300
@@ -33,16 +33,16 @@ function Badge({ tech }) {
         transition-colors duration-200 cursor-default
         ${techHoverStyles[tech] || ""}
       `}
-    >
-      {Icon && <Icon className="w-3 h-3" />}
-      {tech}
-    </span>
-  )
+        >
+            {Icon && <Icon className="w-3 h-3" />}
+            {tech}
+        </span>
+    )
 }
 
 
 export default function Hero() {
-
+    const { t } = useI18n();
     const parallaxRef = useRef(null)
 
     useEffect(() => {
@@ -74,14 +74,14 @@ export default function Hero() {
 
             <div className="order-2 md:order-1 md:col-span-2 mt-4 md:mt-0">
                 <h2 className="text-2xl md:text-4xl font-bold mb-5 md:mb-6">
-                    Associate OutSystems Developer with full-stack & design skills
+                    {t("hero.title")}
                 </h2>
                 <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 mb-3">
-                    Focused on building product features with OutSystems, Python, React, and Node.js. Experienced in taking projects from wireframes to implementation, with attention to UI design and usability.
+                    {t("hero.tagline1")}
                 </p>
 
                 <p className="text-sm md:text-lg text-gray-700 dark:text-gray-300 mb-5">
-                    Open to junior/mid OutSystems roles.
+                    {t("hero.tagline2")}
                 </p>
 
                 <div className="flex flex-wrap items-center gap-2 mb-5">

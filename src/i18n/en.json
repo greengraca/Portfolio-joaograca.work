@@ -1,0 +1,31 @@
+{
+  "common": {
+    "projects": "Projects",
+    "contact": "Contact",
+    "cv": "CV",
+    "email": "Email",
+    "linkedin": "Connect on LinkedIn",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "hero": {
+    "title": "Associate OutSystems Developer with full-stack & design skills",
+    "tagline1": "Focused on building product features with OutSystems, Python, React, and Node.js. Experienced in taking projects from wireframes to implementation, with attention to UI design and usability.",
+    "tagline2": "Open to junior/mid OutSystems roles."
+  },
+  "sections": {
+    "projects": "Highlighted Projects",
+    "contact_title": "Get in Touch",
+    "contact_line_1": "I’m open to junior/mid OutSystems roles, freelance projects, or collaborations.",
+    "contact_line_2": "The best way to reach me is by email or LinkedIn."
+  },
+  "project": {
+    "links": {
+      "source": "Source",
+      "demo": "Demo / Repo",
+      "designs": "Designs"
+    },
+    "more": "More",
+    "less": "Less"
+  }
+}

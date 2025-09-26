@@ -3,8 +3,11 @@ import Hero from "./components/Hero"
 import ProjectList from "./components/ProjectList"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
 
 export default function App() {
+  injectSpeedInsights();
 
   if (!document.documentElement.classList.contains('dark')) {
     document.documentElement.classList.add('dark')

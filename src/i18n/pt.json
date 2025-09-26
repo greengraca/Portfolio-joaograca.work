@@ -1,0 +1,31 @@
+{
+  "common": {
+    "projects": "Projetos",
+    "contact": "Contacto",
+    "cv": "CV",
+    "email": "Email",
+    "linkedin": "Ligar no LinkedIn",
+    "themeLight": "Claro",
+    "themeDark": "Escuro"
+  },
+  "hero": {
+    "title": "Programador e designer criativo",
+    "tagline1": "OutSystems Associate Developer com experiência full-stack e forte base em UI. Construo funcionalidades de produto de ponta a ponta, desde wireframes até integrações.",
+    "tagline2": "Open to junior/mid OutSystems roles."
+  },
+  "sections": {
+    "projects": "Projetos em Destaque",
+    "contact_title": "Entrar em Contacto",
+    "contact_line_1": "Disponível para funções OutSystems júnior/mid, trabalhos freelance ou colaborações.",
+    "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn."
+  },
+  "project": {
+    "links": {
+      "source": "Código",
+      "demo": "Demo / Repo",
+      "designs": "Designs"
+    },
+    "more": "Ver mais",
+    "less": "Ver menos"
+  }
+}
