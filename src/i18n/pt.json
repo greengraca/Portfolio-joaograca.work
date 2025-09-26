@@ -1,90 +1,90 @@
 {
-    "common": {
-        "projects": "Projetos",
-        "contact": "Contacto",
-        "cv": "CV",
-        "email": "Email",
-        "linkedin": "Ligar no LinkedIn",
-        "themeLight": "Claro",
-        "themeDark": "Escuro"
+  "common": {
+    "projects": "Projetos",
+    "contact": "Contacto",
+    "cv": "CV",
+    "email": "Email",
+    "linkedin": "Conectar no LinkedIn",
+    "themeLight": "Claro",
+    "themeDark": "Escuro"
+  },
+  "hero": {
+    "title": "OutSystems Associate Developer com competências full-stack e de design",
+    "tagline1": "Focado em desenvolver funcionalidades de produto com OutSystems, Python, React e Node.js. Experiência em levar projetos desde wireframes até à implementação, com atenção ao design de interfaces e à usabilidade.",
+    "tagline2": "Aberto a posíções júnior/mid de OutSystems."
+  },
+  "sections": {
+    "projects": "Projetos em Destaque",
+    "contact_title": "Entra em contacto comigo",
+    "contact_line_1": "Aberto a funções júnior/mid de OutSystems, projetos freelance ou colaborações.",
+    "contact_line_2": "A melhor forma de me contactares é por email ou LinkedIn."
+  },
+  "projects": {
+    "mtg-bot": {
+      "title": "MTG Discord Bot",
+      "subtitle": "Registo de jogos e estatísticas",
+      "description": "Regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e armazena estatísticas de jogadores e decks. Mantido ativamente e usado diariamente por mais de 100 pessoas.",
+      "details": [
+        "Temporizadores em canais de voz com pausa/retoma",
+        "Estatísticas persistentes por jogador e por deck (MongoDB)",
+        "Comandos de administrador e registo de partidas",
+        "Mantido e melhorado regularmente desde o lançamento"
+      ],
+      "links": {
+        "github": "Github"
+      }
     },
-    "hero": {
-        "title": "Programador e designer criativo",
-        "tagline1": "OutSystems Associate Developer com experiência full-stack e forte base em UI. Construo funcionalidades de produto de ponta a ponta, desde wireframes até integrações.",
-        "tagline2": "Open to junior/mid OutSystems roles."
+    "gen-art-svg": {
+      "title": "Motor de Arte Generativa em SVG",
+      "subtitle": "Motor paramétrico de arte generativa",
+      "description": "Motor que produz arte generativa vetorial em alta resolução — escalável infinitamente sem perda de qualidade.",
+      "details": [
+        "Pipeline totalmente em SVG (sem dependências raster)",
+        "Controlos de parâmetros",
+        "Resultados determinísticos com aleatoriedade baseada em seed"
+      ],
+      "links": {
+        "github": "Github"
+      }
     },
-    "sections": {
-        "projects": "Projetos em Destaque",
-        "contact_title": "Entrar em Contacto",
-        "contact_line_1": "Disponível para funções OutSystems júnior/mid, trabalhos freelance ou colaborações.",
-        "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn."
+    "crypto-tool": {
+      "title": "Ferramenta de Portefólio Cripto",
+      "subtitle": "Tracker baseado em APIs",
+      "description": "Ferramenta que permitia acompanhar um portefólio de criptomoedas através de múltiplas APIs, desenhada e construída durante o desenvolvimento de um projeto NFT.",
+      "details": [
+        "Integrações com APIs para preços em tempo real",
+        "Interfaces desenhadas em Figma",
+        "Visão geral do portefólio com gráficos e estatísticas",
+        "Suporte para várias carteiras e tokens"
+      ],
+      "links": {
+        "figma": "Figma",
+        "github": "Github"
+      }
     },
-    "projects": {
-        "mtg-bot": {
-            "title": "Bot MTG para Discord",
-            "subtitle": "Registo de partidas e estatísticas",
-            "description": "Regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e guarda estatísticas de jogadores e decks. Usado diariamente por mais de 100 pessoas.",
-            "details": [
-                "Temporizadores em canais de voz com pausa/retoma",
-                "Estatísticas persistentes por jogador e por deck (MongoDB)",
-                "Comandos de admin e registo de partidas",
-                "Mantido e melhorado regularmente desde o lançamento"
-            ],
-            "links": {
-                "github": "Github"
-            }
-        },
-        "gen-art-svg": {
-            "title": "Motor de Arte Generativa em SVG",
-            "subtitle": "Motor paramétrico para arte generativa",
-            "description": "Motor para produzir arte generativa vetorial em alta resolução — escalável infinitamente sem perda de qualidade.",
-            "details": [
-                "Pipeline puro em SVG (sem dependências raster)",
-                "Controlos de parâmetros (seed, paletas, ruído, complexidade)",
-                "Saídas determinísticas com aleatoriedade baseada em seed"
-            ],
-            "links": {
-                "github": "Github"
-            }
-        },
-        "crypto-tool": {
-            "title": "Ferramenta de Portefólio de Cripto",
-            "subtitle": "Tracker baseado em APIs",
-            "description": "Ferramenta que permitia acompanhar um portefólio de cripto através de múltiplas APIs, desenhada e construída durante o desenvolvimento de um projeto NFT.",
-            "details": [
-                "Integrações com APIs para preços em tempo real",
-                "Interfaces limpas desenhadas em Figma",
-                "Visão geral do portefólio com gráficos e estatísticas",
-                "Suporte para várias carteiras e tokens"
-            ],
-            "links": {
-                "figma": "Figma",
-                "github": "Github"
-            }
-        },
-        "company-site": {
-            "title": "Design de Website de Empresa",
-            "subtitle": "Wireframes e design visual",
-            "description": "Desenho e wireframing de um website completo com práticas modernas de UI/UX.",
-            "details": [
-                "Designs de alta fidelidade e wireframes em Figma",
-                "Layout responsive com navegação clara",
-                "Valorização da identidade visual e branding"
-            ],
-            "links": {
-                "figma": "Figma"
-            }
-        },
-        "social-designs": {
-            "title": "Designs para Redes Sociais",
-            "subtitle": "Vários recursos visuais",
-            "description": "Coleção de designs e recursos visuais criados para diferentes projetos ao longo dos anos.",
-            "details": [
-                "Modelos de publicações e visuais promocionais",
-                "Layouts consistentes com a marca",
-                "Exportação para vários formatos e rácios por plataforma"
-            ],
-            "links": {}
-        }
+    "company-site": {
+      "title": "Design de Website Empresarial",
+      "subtitle": "Wireframes e design visual",
+      "description": "Desenvolvimento de wireframes e design completo de um website empresarial com práticas modernas de UI/UX.",
+      "details": [
+        "Designs de alta fidelidade e wireframes em Figma",
+        "Layout responsivo com navegação clara",
+        "Valorização da identidade visual e branding"
+      ],
+      "links": {
+        "figma": "Figma"
+      }
+    },
+    "social-designs": {
+      "title": "Designs para Redes Sociais",
+      "subtitle": "Vários recursos visuais",
+      "description": "Coleção de designs e recursos visuais criados para diferentes projetos ao longo dos anos.",
+      "details": [
+        "Modelos de publicações e visuais promocionais",
+        "Layouts consistentes com a marca",
+        "Exportação em vários formatos e rácios dependendo da plataforma"
+      ],
+      "links": {}
     }
+  }
 }

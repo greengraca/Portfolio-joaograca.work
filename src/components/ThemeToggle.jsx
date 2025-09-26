@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
+import { useI18n } from "../i18n/I18nProvider";
 
 export default function ThemeToggle({ small = false, iconOnly = false, className = "" }) {
   const [isDark, setIsDark] = useState(false) // default LIGHT
+  const { t } = useI18n();
 
   useEffect(() => {
     const stored = localStorage.getItem("theme")
@@ -29,7 +31,10 @@ export default function ThemeToggle({ small = false, iconOnly = false, className
       aria-label="Toggle theme"
       title="Toggle theme"
     >
-      {iconOnly ? (isDark ? "🌙" : "☀️") : (isDark ? "🌙 Dark" : "☀️ Light")}
+      {iconOnly
+        ? (isDark ? "🌙" : "☀️")
+        : (isDark ? `🌙 ${t("common.themeDark")}` : `☀️ ${t("common.themeLight")}`)
+      }
     </button>
   )
 }
