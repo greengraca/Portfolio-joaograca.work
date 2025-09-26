@@ -22,6 +22,12 @@ export default function Contact() {
           className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-200 dark:border-brand-border text-gray-700 dark:text-gray-300 font-medium transition hover:bg-gray-100 dark:hover:bg-brand-hover-subtle dark:hover:text-white">
           💼 {t("common.linkedin")}
         </a>
+        <a
+          href="tel:+351913574872"
+          className="w-full sm:w-auto px-6 py-3 rounded-lg border border-gray-200 dark:border-brand-border text-gray-700 dark:text-gray-300 font-medium transition hover:bg-gray-100 dark:hover:bg-brand-hover-subtle dark:hover:text-white"
+        >
+          📱 +351 913574872
+        </a>
       </div>
     </section>
   )
