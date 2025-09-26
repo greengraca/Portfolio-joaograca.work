@@ -40,8 +40,10 @@ export default function Header() {
                     <nav className="hidden md:flex items-center gap-6">
                         <a href="#projects" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">{t("common.projects")}</a>
                         <a href="#contact" className="text-sm text-gray-700 dark:text-gray-300 link-underline hover:text-brand-accent">{t("common.contact")}</a>
-                        <LanguageToggle />
-                        <ThemeToggle />
+                        <div className="md:flex items-center gap-2">
+                            <LanguageToggle />
+                            <ThemeToggle />
+                        </div>
                     </nav>
 
                     {/* Mobile hamburger */}

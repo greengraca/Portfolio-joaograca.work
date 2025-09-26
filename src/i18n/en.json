@@ -1,31 +1,90 @@
 {
-  "common": {
-    "projects": "Projects",
-    "contact": "Contact",
-    "cv": "CV",
-    "email": "Email",
-    "linkedin": "Connect on LinkedIn",
-    "themeLight": "Light",
-    "themeDark": "Dark"
-  },
-  "hero": {
-    "title": "Associate OutSystems Developer with full-stack & design skills",
-    "tagline1": "Focused on building product features with OutSystems, Python, React, and Node.js. Experienced in taking projects from wireframes to implementation, with attention to UI design and usability.",
-    "tagline2": "Open to junior/mid OutSystems roles."
-  },
-  "sections": {
-    "projects": "Highlighted Projects",
-    "contact_title": "Get in Touch",
-    "contact_line_1": "I’m open to junior/mid OutSystems roles, freelance projects, or collaborations.",
-    "contact_line_2": "The best way to reach me is by email or LinkedIn."
-  },
-  "project": {
-    "links": {
-      "source": "Source",
-      "demo": "Demo / Repo",
-      "designs": "Designs"
+    "common": {
+        "projects": "Projects",
+        "contact": "Contact",
+        "cv": "CV",
+        "email": "Email",
+        "linkedin": "Connect on LinkedIn",
+        "themeLight": "Light",
+        "themeDark": "Dark"
     },
-    "more": "More",
-    "less": "Less"
-  }
+    "hero": {
+        "title": "Associate OutSystems Developer with full-stack & design skills",
+        "tagline1": "Focused on building product features with OutSystems, Python, React, and Node.js. Experienced in taking projects from wireframes to implementation, with attention to UI design and usability.",
+        "tagline2": "Open to junior/mid OutSystems roles."
+    },
+    "sections": {
+        "projects": "Highlighted Projects",
+        "contact_title": "Get in Touch",
+        "contact_line_1": "I’m open to junior/mid OutSystems roles, freelance projects, or collaborations.",
+        "contact_line_2": "The best way to reach me is by email or LinkedIn."
+    },
+    "projects": {
+        "mtg-bot": {
+            "title": "MTG Discord Bot",
+            "subtitle": "Game tracking & stats",
+            "description": "Tracks Magic: The Gathering games, manages timers via voice channels, and records player & deck statistics. Actively maintained and used daily by 100+ people.",
+            "details": [
+                "Voice channel timers with pause/resume",
+                "Persistent per-player and per-deck statistics (MongoDB)",
+                "Admin commands and match logging",
+                "Maintained and improved regularly since launch"
+            ],
+            "links": {
+                "github": "Github"
+            }
+        },
+        "gen-art-svg": {
+            "title": "SVG Generative Art Engine",
+            "subtitle": "Parametric SVG engine for generative art",
+            "description": "An engine for producing high-resolution, fully vector generative art — infinitely scalable without loss of quality.",
+            "details": [
+                "Pure SVG rendering pipeline (no raster dependencies)",
+                "Parameter controls (seed, palettes, noise, complexity)",
+                "Deterministic outputs via seeded randomness"
+            ],
+            "links": {
+                "github": "Github"
+            }
+        },
+        "crypto-tool": {
+            "title": "Crypto Portfolio Tool",
+            "subtitle": "API-based tracker",
+            "description": "Tool that allowed users to track their crypto portfolio using multiple APIs designed and built during NFT project development.",
+            "details": [
+                "API integrations for live price updates",
+                "Clean UI designs built in Figma",
+                "Portfolio overview with charts and statistics",
+                "Supporting various wallets and tokens"
+            ],
+            "links": {
+                "figma": "Figma",
+                "github": "Github"
+            }
+        },
+        "company-site": {
+            "title": "Company Website Design",
+            "subtitle": "Wireframing and visual design",
+            "description": "Designed and wireframed a full company website with modern UI/UX practices.",
+            "details": [
+                "High-fidelity designs with wireframing in Figma",
+                "Responsive layout with clear navigation",
+                "Showcase of branding and visual identity"
+            ],
+            "links": {
+                "figma": "Figma"
+            }
+        },
+        "social-designs": {
+            "title": "Social Media Designs",
+            "subtitle": "Various visual assets",
+            "description": "Collection of social media designs and visual assets created for various projects over the years.",
+            "details": [
+                "Post templates and promotional visuals",
+                "Brand-consistent layouts",
+                "Exported across different aspect ratios for multiple platforms"
+            ],
+            "links": {}
+        }
+    }
 }
