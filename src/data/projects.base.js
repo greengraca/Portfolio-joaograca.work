@@ -3,7 +3,7 @@ const projects = [
     id: 'mtg-bot',
     year: '2024–2025',
     tech: ['Python', 'discord.py', 'MongoDB'],
-    links: [{ id: 'github', href: '#' }]
+    links: [{ id: 'github', href: 'https://github.com/greengraca/ca_match_logger' }]
   },
   {
     id: 'gen-art-svg',
