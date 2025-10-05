@@ -15,6 +15,7 @@
   },
   "sections": {
     "projects": "Projetos em Destaque",
+    "projectsparagraph": "Salvo indicação em contrário, cada projeto foi desenvolvido de uma ponta à outra por mim (do design ao código e à colocação em produção).",
     "contact_title": "Entra em contacto comigo",
     "contact_line_1": "Aberto a posições júnior/mid de OutSystems, projetos freelance ou colaborações.",
     "contact_line_2": "A melhor forma de me contactares é por email ou LinkedIn."

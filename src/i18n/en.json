@@ -15,6 +15,7 @@
     },
     "sections": {
         "projects": "Highlighted Projects",
+        "projectsparagraph": "Unless otherwise noted, I designed and built every project end-to-end (design → code → deploy).",
         "contact_title": "Get in Touch",
         "contact_line_1": "I’m open to junior/mid OutSystems roles, freelance projects, or collaborations.",
         "contact_line_2": "The best way to reach me is by email or LinkedIn."
