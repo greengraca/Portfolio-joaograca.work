@@ -43,13 +43,13 @@
     "projects": "Featured Work",
     "projectsPersonality": "Things I've Built (mostly at night)",
     "projectsParagraph": "Unless otherwise noted, I designed and built every project end-to-end.",
-    "projectsParagraphPersonality": "Every one of these started as 'this should be easy' and ended as a 3-week rabbit hole. No regrets. 🍄",
+    "projectsParagraphPersonality": "Every one of these started as 'this should be easy' and ended as a 3-week rabbit hole. No regrets.",
     "contact_title": "Let's Talk",
     "contact_titlePersonality": "Slide Into My DMs",
     "contact_line_1": "I'm open to junior/mid OutSystems roles, freelance projects, or collaborations.",
     "contact_line_2": "Best way to reach me is by email or LinkedIn.",
     "contact_line_1Personality": "Looking for someone who can design AND code? That's literally my thing.",
-    "contact_line_2Personality": "Email me. Or LinkedIn. Or carrier pigeon. I'm flexible. 🍄"
+    "contact_line_2Personality": "Email me. Or LinkedIn. Or carrier pigeon. I'm flexible."
   },
   "projects": {
     "crypto-tool": {

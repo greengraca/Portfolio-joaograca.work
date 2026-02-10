@@ -13,7 +13,7 @@ export default function Footer() {
       </p>
       {personality && (
         <p className="text-xs mt-1.5 italic" style={{ color: "var(--text-muted)", opacity: 0.6 }}>
-          {t("common.madeWith")} React, Claude, {t("common.and")} {t("common.coffee")} ☕ 🍄
+          {t("common.madeWith")} React, Claude, {t("common.and")} {t("common.coffee")} ☕
         </p>
       )}
     </footer>

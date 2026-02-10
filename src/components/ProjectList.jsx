@@ -14,14 +14,12 @@ export default function ProjectList() {
 
   const fullWidthSet = useMemo(() => {
     const wideSet = new Set([0, 3])
-
-    // Check if last item would be alone on its row
     let col = 0
     for (let i = 0; i < projects.length; i++) {
       const span = wideSet.has(i) ? 2 : 1
       if (col + span > 2) col = 0
       if (i === projects.length - 1 && col === 0 && span === 1) {
-        wideSet.add(i) // force full width
+        wideSet.add(i)
       }
       col += span
       if (col >= 2) col = 0
@@ -36,7 +34,7 @@ export default function ProjectList() {
           <h2 className="font-display text-[clamp(28px,4vw,42px)] font-normal mb-3 italic" style={{ color: "var(--text-primary)" }}>
             {personality ? t("sections.projectsPersonality") : t("sections.projects")}
           </h2>
-          <p className="font-body text-[15px] max-w-[480px] leading-[1.6]" style={{ color: "var(--text-muted)" }}>
+          <p className="font-body text-[15px] max-w-[600px] leading-[1.6]" style={{ color: "var(--text-muted)" }}>
             {personality ? t("sections.projectsParagraphPersonality") : t("sections.projectsParagraph")}
           </p>
         </div>

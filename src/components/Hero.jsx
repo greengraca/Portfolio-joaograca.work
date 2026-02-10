@@ -29,8 +29,6 @@ export default function Hero() {
   return (
     <section className="min-h-[85vh] flex items-center relative overflow-hidden">
       <div className="grid-pattern" />
-
-      {/* Gradient orbs */}
       <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
         style={{ background: personality ? "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)" : "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)" }} />
       <div className="absolute bottom-[20%] -left-[5%] w-[350px] h-[350px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
@@ -61,9 +59,7 @@ export default function Hero() {
         ) : (
           <div className="px-6 pt-16 pb-10 w-full flex flex-col items-center justify-center min-h-[70vh] animate-fade-in">
             <HeroPhoto personality={personality} mobile />
-            <button onClick={() => setShowPhoto(false)}
-              className="mt-6 bg-transparent border-none cursor-pointer text-xs"
-              style={{ color: "var(--text-muted)" }}>
+            <button onClick={() => setShowPhoto(false)} className="mt-6 bg-transparent border-none cursor-pointer text-xs" style={{ color: "var(--text-muted)" }}>
               {t("common.swipeBack")}
             </button>
           </div>
@@ -99,8 +95,7 @@ function HeroContent({ t, personality, isMobile = false }) {
       </AnimatedText>
 
       <AnimatedText delay={0.25}>
-        <p className="font-body text-[14px] md:text-[15px] leading-[1.6] font-semibold mb-8 transition-colors duration-500"
-          style={{ color: personality ? "#fbbf24" : "#60a5fa" }}>
+        <p className="font-body text-[14px] md:text-[15px] leading-[1.6] font-semibold mb-8 transition-colors duration-500" style={{ color: personality ? "#fbbf24" : "#60a5fa" }}>
           {personality ? t("personality.tagline2") : t("hero.tagline2")}
         </p>
       </AnimatedText>
@@ -135,14 +130,6 @@ function HeroContent({ t, personality, isMobile = false }) {
           </a>
         </div>
       </AnimatedText>
-
-      {personality && (
-        <AnimatedText delay={0.5}>
-          <div className="mt-4 flex items-center gap-2 text-[11px] font-mono" style={{ color: "var(--text-muted)", opacity: 0.5 }}>
-            <span>🍄</span> <span>⛩️</span> <span style={{ letterSpacing: "0.05em" }}>vibes only</span>
-          </div>
-        </AnimatedText>
-      )}
     </div>
   )
 }
@@ -153,10 +140,8 @@ function HeroPhoto({ personality, mobile = false }) {
       <div className="relative">
         <div className="overflow-hidden transition-transform duration-600"
           style={{
-            width: mobile ? 240 : 280,
-            height: mobile ? 360 : 340,
-            borderRadius: 24,
-            border: "1px solid var(--border)",
+            width: mobile ? 240 : 280, height: mobile ? 360 : 340,
+            borderRadius: 24, border: "1px solid var(--border)",
             boxShadow: "0 20px 80px rgba(0,0,0,0.4)",
             transform: personality ? "rotate(3deg)" : "none",
           }}>
@@ -168,7 +153,6 @@ function HeroPhoto({ personality, mobile = false }) {
         <div className="absolute -bottom-2 -left-2 w-[60px] h-[60px] rounded-xl transition-all duration-500"
           style={{ background: personality ? "rgba(245,158,11,0.06)" : "rgba(139,92,246,0.06)", border: `1px solid ${personality ? "rgba(245,158,11,0.15)" : "rgba(139,92,246,0.1)"}`, transform: personality ? "rotate(-8deg)" : "rotate(-3deg)" }} />
         {personality && <div className="absolute -top-5 left-5 text-[28px] animate-float">🐸</div>}
-        {personality && <div className="absolute -bottom-4 right-8 text-[18px] animate-float" style={{ animationDelay: "1s" }}>🍄</div>}
       </div>
     </AnimatedText>
   )
