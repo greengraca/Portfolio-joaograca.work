@@ -32,19 +32,19 @@ export default function PersonalityBackground() {
         <defs>
           {/* Repeating angular lines pattern tile */}
           <pattern id="angular-lines" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(-25)">
-            <line x1="0" y1="10" x2="120" y2="10" stroke="rgba(245,158,11,0.04)" strokeWidth="0.5" />
-            <line x1="0" y1="30" x2="120" y2="30" stroke="rgba(245,158,11,0.025)" strokeWidth="0.8" />
-            <line x1="0" y1="55" x2="120" y2="55" stroke="rgba(245,158,11,0.035)" strokeWidth="0.5" />
-            <line x1="0" y1="75" x2="120" y2="75" stroke="rgba(245,158,11,0.02)" strokeWidth="1" />
-            <line x1="0" y1="100" x2="120" y2="100" stroke="rgba(245,158,11,0.03)" strokeWidth="0.6" />
+            <line x1="0" y1="10" x2="120" y2="10" stroke="rgba(245,158,11,0.35)" strokeWidth="0.5" />
+            <line x1="0" y1="30" x2="120" y2="30" stroke="rgba(245,158,11,0.22)" strokeWidth="0.8" />
+            <line x1="0" y1="55" x2="120" y2="55" stroke="rgba(245,158,11,0.30)" strokeWidth="0.5" />
+            <line x1="0" y1="75" x2="120" y2="75" stroke="rgba(245,158,11,0.18)" strokeWidth="1" />
+            <line x1="0" y1="100" x2="120" y2="100" stroke="rgba(245,158,11,0.25)" strokeWidth="0.6" />
           </pattern>
 
           {/* Second layer — crossing diagonal lines for depth */}
           <pattern id="cross-lines" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="rotate(50)">
-            <line x1="0" y1="25" x2="200" y2="25" stroke="rgba(239,68,68,0.02)" strokeWidth="0.4" />
-            <line x1="0" y1="70" x2="200" y2="70" stroke="rgba(245,158,11,0.025)" strokeWidth="0.6" />
-            <line x1="0" y1="130" x2="200" y2="130" stroke="rgba(239,68,68,0.015)" strokeWidth="0.5" />
-            <line x1="0" y1="175" x2="200" y2="175" stroke="rgba(245,158,11,0.02)" strokeWidth="0.4" />
+            <line x1="0" y1="25" x2="200" y2="25" stroke="rgba(239,68,68,0.18)" strokeWidth="0.4" />
+            <line x1="0" y1="70" x2="200" y2="70" stroke="rgba(245,158,11,0.22)" strokeWidth="0.6" />
+            <line x1="0" y1="130" x2="200" y2="130" stroke="rgba(239,68,68,0.14)" strokeWidth="0.5" />
+            <line x1="0" y1="175" x2="200" y2="175" stroke="rgba(245,158,11,0.18)" strokeWidth="0.4" />
           </pattern>
 
           {/* Radial fade mask so lines are strongest in center/corners */}

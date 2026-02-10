@@ -13,8 +13,19 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
       ? `${project.images[0]}-800.webp`
       : "/images/placeholder.png"
 
-  /* The ENTIRE card is one overflow:hidden box with a single bg.
-     Image and content are siblings inside — no seam possible. */
+  /*
+   * GAP FIX:
+   * The 1-2px seam was caused by TWO nested overflow:hidden containers
+   * (card + image wrapper). During translateY, the browser composites them
+   * as separate GPU layers and rounds boundaries differently → visible gap.
+   *
+   * Fix: ONLY the card has overflow:hidden. Image wrapper has NONE.
+   * Scaled image bleeds ~5px beyond its 200px wrapper:
+   *   - Top/sides: clipped by card's overflow:hidden
+   *   - Bottom: covered by gradient (extends 10px below) + content (z-index on top)
+   *
+   * One compositing boundary = zero seam.
+   */
   return (
     <div
       ref={ref}
@@ -25,7 +36,6 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
       style={{
         gridColumn: isFullWidth ? "span 2" : "span 1",
         borderRadius: 20,
-        /* Single solid background on the whole card */
         background: "var(--card-inner-bg)",
         border: "1px solid var(--card-border)",
         boxShadow: hovered ? "var(--card-shadow-hover)" : "var(--card-shadow)",
@@ -34,12 +44,12 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
         transitionDelay: `${index * 0.08}s`,
         minHeight: isFullWidth ? 320 : 380,
-        /* overflow hidden clips image scale AND rounds corners */
         overflow: "hidden",
+        willChange: "transform",
       }}
     >
-      {/* Image area — NO separate bg, parent bg shows through */}
-      <div style={{ position: "relative", width: "100%", height: 200, flexShrink: 0, overflow: "hidden" }}>
+      {/* Image wrapper — NO overflow:hidden! Card is the only clip boundary. */}
+      <div style={{ position: "relative", width: "100%", height: 200, flexShrink: 0 }}>
         <img
           src={coverSrc}
           alt={project.title}
@@ -50,25 +60,27 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
             display: "block",
             transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
             transform: hovered ? "scale(1.05)" : "scale(1)",
+            willChange: "transform",
           }}
           onError={(e) => { e.target.style.display = "none" }}
         />
-        {/* Bottom gradient fade to card bg — no gap possible since card bg is one color */}
+
+        {/* Gradient extends 10px BELOW the 200px wrapper to cover scaled image bleed */}
         <div style={{
-          position: "absolute", left: 0, right: 0, bottom: 0, height: 80,
-          background: "linear-gradient(to top, var(--card-inner-bg) 0%, transparent 100%)",
-          pointerEvents: "none",
+          position: "absolute", left: 0, right: 0, bottom: -10, height: 90,
+          background: "linear-gradient(to top, var(--card-inner-bg) 12px, transparent 100%)",
+          pointerEvents: "none", zIndex: 2,
         }} />
 
-        {/* Year badge */}
         <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-[10px] border border-white/10 text-[11px] font-semibold font-mono"
           style={{ color: "#94a3b8", zIndex: 5 }}>
           {project.year}
         </div>
       </div>
 
-      {/* Content — sits directly below, same parent bg */}
-      <div className="p-5 pb-6 flex-1 flex flex-col relative">
+      {/* Content — z-index 3 + own bg so it paints cleanly on top of any image bleed */}
+      <div className="p-5 pb-6 flex-1 flex flex-col"
+        style={{ position: "relative", zIndex: 3, background: "var(--card-inner-bg)" }}>
         <div className="flex items-start gap-2">
           {personality && <span className="text-lg mt-0.5 shrink-0">{project.icon}</span>}
           <div className="flex-1 min-w-0">
@@ -90,7 +102,6 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
         </div>
       </div>
 
-      {/* Hover arrow */}
       <div className="absolute bottom-5 right-5 w-8 h-8 rounded-lg flex items-center justify-center text-base transition-all duration-300"
         style={{
           background: hovered ? (personality ? "rgba(245,158,11,0.15)" : "rgba(255,255,255,0.08)") : "transparent",
