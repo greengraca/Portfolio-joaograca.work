@@ -8,13 +8,11 @@ const I18nCtx = createContext(null)
 export function I18nProvider({ children }) {
   const [lang, setLang] = useState("en")
 
-  // init from storage once
   useEffect(() => {
     const stored = localStorage.getItem("lang")
     setLang(stored === "pt" ? "pt" : "en")
   }, [])
 
-  // persist + set <html lang> on change
   useEffect(() => {
     localStorage.setItem("lang", lang)
     document.documentElement.lang = lang === "pt" ? "pt-PT" : "en"

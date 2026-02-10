@@ -1,81 +1,54 @@
-import { useState, useMemo, useEffect } from "react";
-import useProjects from "../hooks/useProjects";
-import ProjectCard from "./ProjectCard";
-import useReveal from "../hooks/useReveal";
-import { useI18n } from "../i18n/I18nProvider";
+import { useState } from "react"
+import useProjects from "../hooks/useProjects"
+import ProjectCard from "./ProjectCard"
+import ProjectModal from "./ProjectModal"
+import AnimatedText from "./AnimatedText"
+import { useI18n } from "../i18n/I18nProvider"
+import { usePersonality } from "../contexts/PersonalityContext"
 
 export default function ProjectList() {
-  useReveal();
-  const { t } = useI18n();
-  const projects = useProjects();
-
-  const readHash = () => decodeURIComponent(window.location.hash.replace("#",""));
-  const [openId, setOpenId] = useState(null);
-
-  useEffect(() => {
-    const apply = () => {
-      const id = readHash();
-      if (id && projects.some(p => p.id === id)) setOpenId(id);
-      else setOpenId(null);
-    };
-    apply();
-    window.addEventListener("hashchange", apply);
-    return () => window.removeEventListener("hashchange", apply);
-  }, [projects]);
-
-  useEffect(() => {
-    if (!openId) return;
-    const el = document.getElementById(openId);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-      const btn = el.querySelector("button");
-      btn && btn.focus();
-    }
-  }, [openId]);
-
-  const openIndex = useMemo(
-    () => projects.findIndex(p => p.id === openId),
-    [openId, projects]
-  );
-
-  const handleToggle = (id) => {
-    if (openId === id) {
-      history.replaceState(null, "", " ");
-      setOpenId(null);
-    } else {
-      history.pushState(null, "", `#${encodeURIComponent(id)}`);
-      setOpenId(id);
-    }
-  };
+  const { t } = useI18n()
+  const { personality } = usePersonality()
+  const projects = useProjects()
+  const [selected, setSelected] = useState(null)
 
   return (
-    <section id="projects" className="mb-14 md:mb-20">
-      <h3 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-3">
-        {t("sections.projects")}
-      </h3>
-      <p className="mb-6 text-sm text-neutral-500 dark:text-neutral-40 md:mb-7">
-        {t("sections.projectsparagraph")}
-      </p>
+    <section id="projects" className="px-6 pt-10 pb-20 max-w-[1100px] mx-auto">
+      <AnimatedText>
+        <div className="mb-12">
+          <h2 className="font-display text-[clamp(28px,4vw,42px)] font-normal text-gray-100 mb-3 italic">
+            {personality ? t("sections.projectsPersonality") : t("sections.projects")}
+          </h2>
+          <p className="font-body text-[15px] text-gray-500 max-w-[480px] leading-[1.6]">
+            {personality ? t("sections.projectsParagraphPersonality") : t("sections.projectsParagraph")}
+          </p>
+        </div>
+      </AnimatedText>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {projects.map((p, index) => {
-          const isExpanded = openId === p.id;
-          const isLeftOfExpanded =
-            openIndex !== -1 && openIndex % 2 === 1 && index === openIndex - 1;
-          const colSpan = isExpanded || isLeftOfExpanded ? "md:col-span-2" : "";
-
-          return (
-            <div key={p.id} className={`${colSpan} js-reveal`} id={p.id}>
-              <ProjectCard
-                project={p}
-                expanded={isExpanded}
-                onToggle={() => handleToggle(p.id)}
-                anchorId={p.id}
-              />
-            </div>
-          );
-        })}
+      <div
+        className="projects-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 20,
+        }}
+      >
+        {projects.map((p, i) => (
+          <ProjectCard
+            key={p.id}
+            project={p}
+            index={i}
+            onClick={() => setSelected(p)}
+          />
+        ))}
       </div>
+
+      {selected && (
+        <ProjectModal
+          project={selected}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </section>
-  );
+  )
 }

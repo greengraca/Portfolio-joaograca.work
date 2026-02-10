@@ -1,9 +1,11 @@
 import { useMemo } from "react"
-import projectsBase from "../data/projects"
+import projectsBase from "../data/projects.base"
 import { useI18n } from "../i18n/I18nProvider"
+import { usePersonality } from "../contexts/PersonalityContext"
 
 export default function useProjects() {
   const { lang, t } = useI18n()
+  const { personality } = usePersonality()
 
   return useMemo(() => {
     return projectsBase.map((p) => {
@@ -14,7 +16,9 @@ export default function useProjects() {
         ...p,
         title: tr.title ?? p.title ?? p.id,
         subtitle: tr.subtitle ?? p.subtitle ?? "",
-        description: tr.description ?? p.description ?? "",
+        description: personality && tr.descPersonality
+          ? tr.descPersonality
+          : (tr.description ?? p.description ?? ""),
         details: tr.details ?? p.details ?? [],
         links: (p.links || []).map(l => ({
           ...l,
@@ -22,5 +26,5 @@ export default function useProjects() {
         }))
       }
     })
-  }, [lang, t])
+  }, [lang, t, personality])
 }

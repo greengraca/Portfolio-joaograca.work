@@ -4,10 +4,15 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
+      },
       colors: {
         brand: {
-          bg: '#182027',
-          header: '#101922',
+          bg: '#0a0f14',
+          header: '#0a0f14',
           hover: '#374652',
           'hover-subtle': '#2c3942',
           active: '#22313a',

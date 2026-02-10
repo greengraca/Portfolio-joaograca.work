@@ -10,6 +10,11 @@
 
   <link rel="canonical" href="https://joaograca.work/">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="João Graça — Portfolio">
   <meta property="og:title" content="João Graça — Portfolio">
@@ -23,8 +28,12 @@
   <meta name="twitter:title" content="João Graça — Portfolio">
   <meta name="twitter:description" content="Associate OutSystems Developer with full-stack and UI design skills.">
   <meta name="twitter:image" content="https://joaograca.work/og/og-1200x630.jpg">
-  <meta name="theme-color" content="#1E2730">
+  <meta name="theme-color" content="#0a0f14">
   <meta name="color-scheme" content="dark light">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/favicon-180x180.png">
 
   <script type="application/ld+json">
   {
@@ -38,7 +47,7 @@
       "https://github.com/greengraca"
     ]
   }
-</script>
+  </script>
 </head>
 
 <body>
@@ -49,7 +58,7 @@
 <script>
   // default: dark; override with stored preference
   const stored = localStorage.getItem('theme');
-  const dark = stored ? stored === 'dark' : true; // default dark
+  const dark = stored ? stored === 'dark' : true;
   document.documentElement.classList.toggle('dark', dark);
   document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
 </script>

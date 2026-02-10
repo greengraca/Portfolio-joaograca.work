@@ -1,139 +1,99 @@
-import { useId, useRef } from "react";
-import { FiChevronDown } from "react-icons/fi";
-import ImageGallery from "./ImageGallery";
+import { useState } from "react"
+import useScrollReveal from "../hooks/useScrollReveal"
+import { usePersonality } from "../contexts/PersonalityContext"
 
-function TechBadge({ children }) {
-  return (
-    <span className="inline-block px-2 py-0.5 text-[11px] rounded-full border border-gray-200 dark:border-gray-700 mr-2 mb-2 text-gray-600 dark:text-gray-300">
-      {children}
-    </span>
-  );
-}
+export default function ProjectCard({ project, onClick, index }) {
+  const [ref, vis] = useScrollReveal()
+  const [hovered, setHovered] = useState(false)
+  const { personality } = usePersonality()
 
-export default function ProjectCard({ project, expanded, onToggle, anchorId }) {
-  const contentId = useId();
-  const galleryRef = useRef(null);
-  const allImages = project.cover
-    ? [project.cover, ...(project.images || [])]
-    : (project.images || []);
+  const isWide = index === 0 || index === 3
+  const coverSrc = project.cover
+    ? `${project.cover}-800.webp`
+    : project.images?.[0]
+      ? `${project.images[0]}-800.webp`
+      : "/images/placeholder.png"
 
   return (
-    <article
-      id={anchorId}
-      className={`h-full md:min-h-[135px] p-4 md:p-6 rounded-2xl border shadow-sm transition-all duration-300 flex flex-col
-        ${expanded
-          ? "bg-gray-50 border-gray-300 dark:bg-brand-active dark:border-brand-active-border"
-          : "bg-white border-gray-200 dark:bg-[#1E2730] dark:border-brand-border hover:bg-gray-100 dark:hover:bg-brand-hover-subtle hover:shadow-[0_4px_8px_rgba(0,0,0,0.1)]"
-        }`}
+    <div
+      ref={ref}
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="cursor-pointer relative overflow-hidden rounded-[20px] flex flex-col transition-all duration-500"
+      style={{
+        gridColumn: isWide ? "span 2" : "span 1",
+        border: `1px solid ${hovered ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.06)"}`,
+        background: hovered ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.015)",
+        transform: vis ? (hovered ? "translateY(-4px)" : "translateY(0)") : "translateY(30px)",
+        opacity: vis ? 1 : 0,
+        transitionDelay: `${index * 0.08}s`,
+        minHeight: isWide ? 320 : 380,
+      }}
     >
-      <button
-        onClick={onToggle}
-        aria-expanded={expanded}
-        aria-controls={contentId}
-        className="w-full text-left"
+      {/* Cover image */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{
+          height: 200,
+          background: `linear-gradient(135deg, ${project.color}15, ${project.color}08)`,
+        }}
       >
-        <div className="flex items-start justify-between mt-2 md:mt-0">
-          <div>
-            <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              {project.title}
-            </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              {project.subtitle} • <span className="font-mono">{project.year}</span>
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="hidden md:block text-xs text-gray-500 dark:text-gray-400">
-              {(project.tech || []).join(" · ")}
-            </div>
-            <FiChevronDown
-              className={`w-5 h-5 text-gray-500 transition-transform ${expanded ? "rotate-180" : ""}`}
-            />
-          </div>
+        <img
+          src={coverSrc}
+          alt={project.title}
+          className="w-full h-full object-cover object-top transition-transform duration-600"
+          style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
+          loading="lazy"
+          onError={(e) => { e.target.style.display = "none" }}
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,20,0.9)] via-[rgba(10,15,20,0.1)] to-transparent" />
+
+        {/* Year badge */}
+        <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-[10px] border border-white/10 text-[11px] font-semibold font-mono text-gray-400">
+          {project.year}
         </div>
 
-        <p className={`text-gray-700 dark:text-gray-300 mt-3 md:mt-4 ${expanded ? "" : "line-clamp-3 md:line-clamp-2"}`}>
+        {personality && (
+          <div className="absolute top-3.5 left-3.5 text-[22px] drop-shadow-md">
+            {project.icon}
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-5 pb-6 flex-1 flex flex-col">
+        <h3 className="font-display text-[22px] font-normal text-gray-100 mb-1 leading-tight">
+          {project.title}
+        </h3>
+        <p className="text-xs font-semibold font-mono mb-3" style={{ color: project.accentDark }}>
+          {project.subtitle}
+        </p>
+        <p className="font-body text-sm leading-[1.6] text-gray-400 flex-1 line-clamp-3">
           {project.description}
         </p>
-      </button>
 
-      <div className="mt-3 md:hidden">
-        {(project.tech || []).map((t) => (
-          <TechBadge key={t}>{t}</TechBadge>
-        ))}
-      </div>
-
-      <div
-        id={contentId}
-        className={`overflow-hidden transition-[grid-template-rows] duration-300 grid mt-3 md:mt-4 ${expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
-      >
-        <div className="min-h-0">
-          <div className="pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-800">
-
-            {expanded && project.cover && (
-              <div className="mb-4">
-                <button
-                  onClick={() => galleryRef.current?.open(0)}
-                  className="block w-full"
-                  aria-label="Open cover in lightbox"
-                >
-                  <img
-                    src={`${project.cover}-1200.webp`}
-                    alt={`${project.title} cover`}
-                    className="w-full h-auto max-h-[70vh] object-contain rounded-xl border border-gray-200 dark:border-gray-800 cursor-pointer transition-transform duration-200 hover:scale-[1.01] bg-gray-100 dark:bg-gray-800"
-                    loading="lazy"
-                    width="1200" height="675"
-                    sizes="100vw"
-                    srcSet={`
-                      ${project.cover}-800.webp 800w,
-                      ${project.cover}-1200.webp 1200w
-                    `}
-                    onError={(e) => { e.currentTarget.src = "/images/placeholder.png"; }}
-                  />
-                </button>
-              </div>
-            )}
-
-            {project.details?.length ? (
-              <ul className="list-disc pl-5 text-sm text-gray-700 dark:text-gray-300 space-y-1">
-                {project.details.map((d, i) => <li key={i}>{d}</li>)}
-              </ul>
-            ) : null}
-
-            {project.links?.length ? (
-              <div className="flex flex-wrap gap-2 md:gap-3 mt-3 md:mt-4 mb-8">
-                {project.links.map((l, i) => (
-                  <a
-                    key={i}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-2 rounded-lg border border-gray-200 dark:border-brand-border text-sm text-gray-700 dark:text-gray-300 transition hover:bg-gray-100 dark:hover:bg-brand-hover-subtle dark:hover:text-white"
-                  >
-                    {l.label} →
-                  </a>
-                ))}
-              </div>
-            ) : null}
-
-            {(allImages || []).length ? (
-              <ImageGallery
-                ref={galleryRef}
-                images={allImages}
-                title={project.title}
-                hideFirstThumb={!!project.cover}
-              />
-            ) : (
-              <div className="mt-4">
-                <img
-                  src="/images/placeholder.png"
-                  alt="Placeholder"
-                  className="w-full h-32 object-cover rounded-lg border border-gray-200 dark:border-gray-800"
-                />
-              </div>
-            )}
-          </div>
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-1.5 mt-3.5">
+          {project.tech.map(t => (
+            <span key={t} className="text-[11px] px-2 py-[3px] rounded-md bg-white/[0.04] border border-white/[0.06] text-gray-500 font-mono">
+              {t}
+            </span>
+          ))}
         </div>
       </div>
-    </article>
-  );
+
+      {/* Hover arrow */}
+      <div
+        className="absolute bottom-5 right-5 w-8 h-8 rounded-lg flex items-center justify-center text-base transition-all duration-300"
+        style={{
+          background: hovered ? "rgba(255,255,255,0.08)" : "transparent",
+          color: hovered ? "#e2e8f0" : "#475569",
+          transform: hovered ? "translate(0,0)" : "translate(4px, 4px)",
+          opacity: hovered ? 1 : 0,
+        }}
+      >→</div>
+    </div>
+  )
 }

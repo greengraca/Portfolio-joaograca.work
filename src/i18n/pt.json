@@ -6,56 +6,59 @@
     "email": "Email",
     "linkedin": "Conectar no LinkedIn",
     "themeLight": "Claro",
-    "themeDark": "Escuro"
+    "themeDark": "Escuro",
+    "viewProject": "Ver Detalhes",
+    "close": "Fechar",
+    "github": "Github",
+    "figma": "Figma",
+    "allRights": "Todos os direitos reservados.",
+    "madeWith": "Feito com",
+    "and": "e",
+    "coffee": "demasiado café"
   },
   "hero": {
-    "title": "OutSystems Associate Developer com competências full-stack e de design",
-    "tagline1": "Focado em desenvolver funcionalidades de produto com OutSystems, Python, React e Node.js. Experiência em levar projetos desde wireframes até à implementação, com atenção ao design de interfaces e à usabilidade.",
-    "tagline2": "Aberto a posições júnior/mid de OutSystems."
+    "title": "A construir produtos de",
+    "titleHighlight": "wireframe a produção",
+    "tagline1": "OutSystems Associate Developer com competências full-stack e de design. Levo projetos do conceito ao Figma até ao código — com atenção ao design de interfaces, usabilidade e arquitetura limpa.",
+    "tagline2": "Aberto a posições júnior/mid de OutSystems.",
+    "scrollCta": "Ver o meu trabalho",
+    "statusBadge": "Disponível para oportunidades"
+  },
+  "personality": {
+    "popup": "Queres ver o verdadeiro eu?",
+    "toggle": "Modo Personalidade",
+    "on": "ON",
+    "off": "OFF",
+    "title": "A construir cenas fixes com",
+    "titleHighlight": "código & quantidades questionáveis de café",
+    "tagline1": "Dev full-stack que passou de mockups em Figma a ferramentas NFT e bots de Discord. Eu vibe code, desenho e faço deploy. Se está num ecrã, provavelmente tentei construí-lo às 2 da manhã.",
+    "tagline2": "À procura da próxima aventura. Contrata-me antes que alguém o faça.",
+    "scrollCta": "Vê o que fiz",
+    "statusBadge": "// vibe_coding = true",
+    "subtitle": "Vibe Coder Extraordinário"
   },
   "sections": {
-    "projects": "Projetos em Destaque",
-    "projectsparagraph": "Salvo indicação em contrário, cada projeto foi desenvolvido de uma ponta à outra por mim (do design ao código e à colocação em produção).",
-    "contact_title": "Entra em contacto comigo",
+    "projects": "Trabalho em Destaque",
+    "projectsPersonality": "Coisas que Construí (maioritariamente à noite)",
+    "projectsParagraph": "Salvo indicação contrária, desenhei e desenvolvi cada projeto do início ao fim.",
+    "projectsParagraphPersonality": "Cada um destes começou como 'isto deve ser fácil' e acabou como 3 semanas de rabbit hole. Sem arrependimentos.",
+    "contact_title": "Vamos Conversar",
+    "contact_titlePersonality": "Manda Mensagem",
     "contact_line_1": "Aberto a posições júnior/mid de OutSystems, projetos freelance ou colaborações.",
-    "contact_line_2": "A melhor forma de me contactares é por email ou LinkedIn."
+    "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn.",
+    "contact_line_1Personality": "Procuras alguém que desenha E programa? É literalmente o que eu faço.",
+    "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível."
   },
   "projects": {
-    "mtg-bot": {
-      "title": "MTG Discord Bot",
-      "subtitle": "Registo de jogos e estatísticas",
-      "description": "Regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e armazena estatísticas de jogadores e decks. Mantido ativamente e usado diariamente por mais de 100 pessoas.",
-      "details": [
-        "Temporizadores em canais de voz com pausa/retoma",
-        "Estatísticas persistentes por jogador e por deck (MongoDB)",
-        "Comandos de administrador e registo de partidas",
-        "Mantido e melhorado regularmente desde o lançamento"
-      ],
-      "links": {
-        "github": "Github"
-      }
-    },
-    "gen-art-svg": {
-      "title": "Motor de Arte Generativa em SVG",
-      "subtitle": "Motor paramétrico de arte generativa",
-      "description": "Motor que produz arte generativa vetorial em alta resolução — escalável infinitamente sem perda de qualidade.",
-      "details": [
-        "Pipeline totalmente em SVG (sem dependências raster)",
-        "Controlos de parâmetros",
-        "Resultados determinísticos com aleatoriedade baseada em seed"
-      ],
-      "links": {
-        "github": "Github"
-      }
-    },
     "crypto-tool": {
       "title": "Ferramenta de Portefólio Cripto",
       "subtitle": "Tracker baseado em APIs",
-      "description": "Ferramenta que permitia acompanhar um portefólio de criptomoedas através de múltiplas APIs, desenhada e construída durante o desenvolvimento de um projeto NFT.",
+      "description": "Ferramenta para acompanhar um portefólio de criptomoedas com múltiplas APIs, desenhada durante o desenvolvimento de um projeto NFT.",
+      "descPersonality": "Construí isto durante a febre dos NFTs. Um tracker de crypto completo com preços em tempo real e dashboards. Racional? Não. Divertido? Sem dúvida.",
       "details": [
         "Integrações com APIs para preços em tempo real",
         "Interfaces desenhadas em Figma",
-        "Visão geral do portefólio com gráficos e estatísticas",
+        "Visão geral com gráficos e estatísticas",
         "Suporte para várias carteiras e tokens"
       ],
       "links": {
@@ -63,14 +66,44 @@
         "github": "Github"
       }
     },
+    "mtg-bot": {
+      "title": "MTG Discord Bot",
+      "subtitle": "Registo de jogos e estatísticas",
+      "description": "Regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e armazena estatísticas. Mantido e usado diariamente por 100+ pessoas.",
+      "descPersonality": "O meu grupo de Commander precisava de um bot. Construí um. Agora 100+ pessoas usam-no diariamente. Engenharia nerd no seu melhor.",
+      "details": [
+        "Temporizadores em canais de voz com pausa/retoma",
+        "Estatísticas persistentes por jogador e por deck (MongoDB)",
+        "Comandos de administrador e registo de partidas",
+        "Mantido e melhorado desde o lançamento"
+      ],
+      "links": {
+        "github": "Github"
+      }
+    },
+    "gen-art-svg": {
+      "title": "Motor de Arte Generativa SVG",
+      "subtitle": "Motor paramétrico SVG",
+      "description": "Motor que produz arte generativa vetorial em alta resolução — escalável infinitamente sem perda de qualidade.",
+      "descPersonality": "Fiz uma máquina que faz arte. SVG puro, resolução infinita, caos determinístico. Cada output é único mas reproduzível.",
+      "details": [
+        "Pipeline totalmente em SVG",
+        "Controlos de parâmetros",
+        "Resultados determinísticos com seed"
+      ],
+      "links": {
+        "github": "Github"
+      }
+    },
     "company-site": {
       "title": "Design de Website Empresarial",
       "subtitle": "Wireframes e design visual",
-      "description": "Desenvolvimento de wireframes e design completo de um website empresarial com práticas modernas de UI/UX.",
+      "description": "Design e wireframes completos de um website empresarial com práticas modernas de UI/UX.",
+      "descPersonality": "Design completo de website — wireframes, mockups high-fi, layouts responsivos. Daqueles projetos onde ficas obcecado com 2px de padding à meia-noite.",
       "details": [
-        "Designs de alta fidelidade e wireframes em Figma",
+        "Designs de alta fidelidade em Figma",
         "Layout responsivo com navegação clara",
-        "Valorização da identidade visual e branding"
+        "Identidade visual e branding"
       ],
       "links": {
         "figma": "Figma"
@@ -80,10 +113,11 @@
       "title": "Designs para Redes Sociais",
       "subtitle": "Vários recursos visuais",
       "description": "Coleção de designs e recursos visuais criados para diferentes projetos ao longo dos anos.",
+      "descPersonality": "Anos de visuais que param o scroll. Banners, posts, stories — se precisava de ficar bem num feed, eu desenhei.",
       "details": [
         "Modelos de publicações e visuais promocionais",
         "Layouts consistentes com a marca",
-        "Exportação em vários formatos e rácios dependendo da plataforma"
+        "Exportação em vários formatos"
       ],
       "links": {}
     }
