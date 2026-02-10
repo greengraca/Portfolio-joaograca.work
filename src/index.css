@@ -3,17 +3,83 @@
 
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; }
-
 html, body, #root { height: 100%; }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
-:root { color-scheme: dark; }
+/* ══════════════════════════════════════════
+   CSS Custom Properties — Theme System
+   ══════════════════════════════════════════ */
+
+/* Dark mode (default) */
+:root, .dark {
+  --bg-primary: #0a0f14;
+  --bg-card: rgba(255,255,255,0.015);
+  --bg-card-hover: rgba(255,255,255,0.03);
+  --header-bg-solid: rgba(10, 15, 20, 0.85);
+  --modal-bg: linear-gradient(135deg, #0f1419, #1a2030);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #cbd5e1;
+  --text-muted: #64748b;
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --border-subtle: rgba(255,255,255,0.04);
+  --nav-text: #94a3b8;
+  --nav-text-hover: #f1f5f9;
+  --nav-hover-bg: rgba(255,255,255,0.06);
+  --tech-bg: rgba(255,255,255,0.04);
+  --tech-border: rgba(255,255,255,0.08);
+  --tech-text: #94a3b8;
+  --tech-text-hover: #e2e8f0;
+  --tech-bg-hover: rgba(255,255,255,0.08);
+  --scrollbar-track: #0a0f14;
+  --scrollbar-thumb: #1e293b;
+  --scrollbar-thumb-hover: #334155;
+  --social-border: rgba(255,255,255,0.1);
+  --social-hover-bg: rgba(255,255,255,0.06);
+  --social-text: #94a3b8;
+  --social-text-hover: #e2e8f0;
+  color-scheme: dark;
+}
+
+/* Light mode */
+html:not(.dark) {
+  --bg-primary: #f8fafc;
+  --bg-card: rgba(0,0,0,0.02);
+  --bg-card-hover: rgba(0,0,0,0.04);
+  --header-bg-solid: rgba(248, 250, 252, 0.92);
+  --modal-bg: linear-gradient(135deg, #ffffff, #f1f5f9);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #334155;
+  --text-muted: #94a3b8;
+  --border: rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.15);
+  --border-subtle: rgba(0,0,0,0.05);
+  --nav-text: #64748b;
+  --nav-text-hover: #0f172a;
+  --nav-hover-bg: rgba(0,0,0,0.04);
+  --tech-bg: rgba(0,0,0,0.03);
+  --tech-border: rgba(0,0,0,0.08);
+  --tech-text: #64748b;
+  --tech-text-hover: #1e293b;
+  --tech-bg-hover: rgba(0,0,0,0.06);
+  --scrollbar-track: #f8fafc;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+  --social-border: rgba(0,0,0,0.1);
+  --social-hover-bg: rgba(0,0,0,0.04);
+  --social-text: #64748b;
+  --social-text-hover: #0f172a;
+  color-scheme: light;
+}
 
 body {
-  background: #0a0f14;
-  color: #e2e8f0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   overflow-x: hidden;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
@@ -25,44 +91,210 @@ body {
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0a0f14; }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #334155; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
 /* ── Typography ── */
 .font-display { font-family: 'Instrument Serif', Georgia, serif; }
 .font-body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
 
-/* ── Animations ── */
+/* ══════════════════════════════════════════
+   Component Styles
+   ══════════════════════════════════════════ */
+
+/* Nav buttons */
+.nav-btn {
+  color: var(--nav-text);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.nav-btn:hover {
+  color: var(--nav-text-hover);
+  background: var(--nav-hover-bg);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  background: var(--header-bg-solid);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+}
+.mobile-menu-item {
+  color: var(--nav-text);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.mobile-menu-item:hover {
+  color: var(--nav-text-hover);
+  background: var(--nav-hover-bg);
+}
+.border-t-item {
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Tech pills */
+.tech-pill {
+  background: var(--tech-bg);
+  border: 1px solid var(--tech-border);
+  color: var(--tech-text);
+  transition: all 0.2s;
+}
+.tech-pill:hover {
+  background: var(--tech-bg-hover);
+  color: var(--tech-text-hover);
+}
+
+/* Tech tags in project cards */
+.tech-tag {
+  background: var(--tech-bg);
+  border: 1px solid var(--tech-border);
+  color: var(--text-muted);
+}
+
+/* Social icon buttons */
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--social-border);
+  color: var(--social-text);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.social-icon-btn:hover {
+  background: var(--social-hover-bg);
+  color: var(--social-text-hover);
+  transform: translateY(-2px);
+}
+
+/* Modal links */
+.modal-link {
+  transition: all 0.2s;
+}
+.modal-link:hover {
+  background: var(--nav-hover-bg);
+  border-color: var(--border-hover) !important;
+}
+
+/* Gallery thumbnails */
+.gallery-thumb {
+  background: var(--bg-card);
+}
+.gallery-thumb:hover {
+  border-color: var(--border-hover) !important;
+}
+
+/* ── Hero Gradient Text ──
+   Using classes instead of inline styles to prevent the
+   spread/paint bug when toggling personality mode */
+.hero-gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+.hero-gradient-normal {
+  background-image: linear-gradient(135deg, #60a5fa, #a78bfa);
+}
+.hero-gradient-personality {
+  background-image: linear-gradient(135deg, #fbbf24, #ef4444);
+}
+
+/* Status badges */
+.normal-badge {
+  background: rgba(59,130,246,0.08);
+  border: 1px solid rgba(59,130,246,0.15);
+  color: #60a5fa;
+}
+.personality-badge {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.2);
+  color: #fbbf24;
+}
+
+/* ── Light mode overrides for hero ── */
+html:not(.dark) .grid-pattern { opacity: 0.02; }
+html:not(.dark) .noise-overlay { opacity: 0.008; }
+
+/* ══════════════════════════════════════════
+   Personality Mode Flare
+   ══════════════════════════════════════════ */
+
+/* Animated border sweep on hover */
+.personality-border-sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+.personality-border-sweep::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(245,158,11,0.5) 10%,
+    rgba(239,68,68,0.3) 20%,
+    transparent 30%,
+    transparent 100%
+  );
+  animation: border-rotate 2.5s linear infinite;
+}
+.personality-border-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 19px;
+  background: var(--bg-primary);
+}
+
+@keyframes border-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Card glow in personality mode */
+.personality-card-hover {
+  box-shadow: 0 4px 30px rgba(245,158,11,0.08), 0 0 0 1px rgba(245,158,11,0.15) !important;
+}
+
+/* Personality popup extra sparkle */
+.personality-active .cta-btn:hover {
+  box-shadow: 0 8px 30px rgba(245,158,11,0.4) !important;
+}
+
+/* ══════════════════════════════════════════
+   Animations
+   ══════════════════════════════════════════ */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideInRight {
   from { opacity: 0; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
 }
-
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
 }
 
 .animate-fade-in { animation: fadeIn 0.3s ease; }
@@ -70,17 +302,6 @@ body {
 .animate-slide-in-right { animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .animate-pulse-dot { animation: pulse-dot 2s infinite; }
 .animate-float { animation: float 3s ease-in-out infinite; }
-
-/* ── Scroll Reveal ── */
-.reveal-hidden {
-  opacity: 0;
-  transform: translateY(24px);
-}
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
 /* ── Noise texture overlay ── */
 .noise-overlay {
@@ -112,22 +333,15 @@ body {
   .projects-grid > div {
     grid-column: span 1 !important;
   }
-  .hero-photo {
-    display: none !important;
-  }
-  .hero-content {
-    grid-template-columns: 1fr !important;
-  }
 }
 
-/* ── Hide scrollbar helper ── */
+/* ── Utility ── */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
-
-/* ── Light mode overrides ── */
-html:not(.dark) body {
-  background: #fafbfc;
-  color: #1e293b;
-}
-html:not(.dark) ::-webkit-scrollbar-track { background: #fafbfc; }
-html:not(.dark) ::-webkit-scrollbar-thumb { background: #cbd5e1; }

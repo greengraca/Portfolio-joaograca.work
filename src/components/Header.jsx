@@ -14,7 +14,10 @@ export default function Header() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme")
-    setIsDark(stored ? stored === "dark" : true)
+    const dark = stored ? stored === "dark" : true
+    setIsDark(dark)
+    document.documentElement.classList.toggle("dark", dark)
+    document.documentElement.style.colorScheme = dark ? "dark" : "light"
   }, [])
 
   const toggleTheme = () => {
@@ -25,7 +28,6 @@ export default function Header() {
     localStorage.setItem("theme", next ? "dark" : "light")
   }
 
-  // close mobile menu on outside click
   useEffect(() => {
     if (!mobileOpen) return
     const h = (e) => { if (menuRef.current && !menuRef.current.contains(e.target)) setMobileOpen(false) }
@@ -38,33 +40,29 @@ export default function Header() {
       className="sticky top-0 z-50 w-full transition-all duration-400"
       style={{
         background: solid
-          ? (isDark ? "rgba(10, 15, 20, 0.85)" : "rgba(255,255,255,0.85)")
+          ? `var(--header-bg-solid)`
           : "transparent",
         backdropFilter: solid ? "blur(20px) saturate(1.8)" : "none",
-        borderBottom: solid
-          ? `1px solid ${isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)"}`
-          : "1px solid transparent",
+        borderBottom: solid ? `1px solid var(--border)` : "1px solid transparent",
       }}
     >
       <div className="max-w-[1100px] mx-auto px-6 py-3.5 flex items-center justify-between">
-        {/* Logo / name */}
+        {/* Logo with favicon */}
         <div className="flex items-center gap-3">
           <div
-            className="w-9 h-9 rounded-[10px] flex items-center justify-center text-white font-display text-base font-bold transition-all duration-500"
+            className="w-9 h-9 rounded-[10px] overflow-hidden flex items-center justify-center transition-all duration-500 shrink-0"
             style={{
-              background: personality
-                ? "linear-gradient(135deg, #f59e0b, #ef4444)"
-                : "linear-gradient(135deg, #3b82f6, #8b5cf6)",
               transform: personality ? "rotate(-5deg)" : "none",
+              boxShadow: personality ? "0 0 12px rgba(245,158,11,0.3)" : "none",
             }}
           >
-            {personality ? "🐸" : "JG"}
+            <img src="/favicon-64x64.png" alt="JG" className="w-full h-full object-cover" />
           </div>
           <div>
-            <div className="text-[15px] font-bold text-gray-100 leading-tight">
+            <div className="text-[15px] font-bold leading-tight" style={{ color: "var(--text-primary)" }}>
               João Graça
             </div>
-            <div className="text-[11px] text-gray-500 font-medium">
+            <div className="text-[11px] font-medium" style={{ color: "var(--text-muted)" }}>
               {personality ? t("personality.subtitle") : "Full-Stack Developer & Designer"}
             </div>
           </div>
@@ -72,21 +70,15 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
-          <NavBtn href="#projects" isDark={isDark}>{t("common.projects")}</NavBtn>
-          <NavBtn href="#contact" isDark={isDark}>{t("common.contact")}</NavBtn>
-          <a
-            href="/JoaoGraca-CV.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg text-[13px] font-semibold font-mono text-gray-400 hover:text-gray-100 hover:bg-white/[0.06] transition-all"
-          >
-            CV
-          </a>
-          <div className="w-px h-5 bg-white/10 mx-1" />
-          <SmallBtn onClick={() => setLang(lang === "en" ? "pt" : "en")} isDark={isDark}>
+          <NavBtn href="#projects">{t("common.projects")}</NavBtn>
+          <NavBtn href="#contact">{t("common.contact")}</NavBtn>
+          <a href="/JoaoGraca-CV.pdf" target="_blank" rel="noopener noreferrer"
+            className="nav-btn px-3 py-1.5 rounded-lg text-[13px] font-semibold font-mono">CV</a>
+          <div className="w-px h-5 mx-1" style={{ background: "var(--border)" }} />
+          <SmallBtn onClick={() => setLang(lang === "en" ? "pt" : "en")}>
             {lang === "en" ? "EN" : "PT"}
           </SmallBtn>
-          <SmallBtn onClick={toggleTheme} isDark={isDark}>
+          <SmallBtn onClick={toggleTheme}>
             {isDark ? "🌙" : "☀️"}
           </SmallBtn>
         </nav>
@@ -95,7 +87,8 @@ export default function Header() {
         <div className="md:hidden relative" ref={menuRef}>
           <button
             onClick={(e) => { e.stopPropagation(); setMobileOpen(v => !v) }}
-            className="p-2 rounded-lg border border-white/10 text-gray-300 hover:bg-white/[0.06] transition cursor-pointer"
+            className="p-2 rounded-lg border transition cursor-pointer"
+            style={{ borderColor: "var(--border)", color: "var(--text-secondary)" }}
             aria-label="Menu"
           >
             <span className="block w-5 h-[2px] bg-current rounded" />
@@ -104,18 +97,15 @@ export default function Header() {
           </button>
 
           {mobileOpen && (
-            <div className="absolute right-0 top-full mt-2 z-50 rounded-xl border border-white/10 bg-[#0f1419]/95 backdrop-blur-xl shadow-2xl overflow-hidden min-w-[180px] animate-slide-up">
-              <a href="#projects" onClick={() => setMobileOpen(false)}
-                className="block px-5 py-3 text-sm text-gray-200 hover:bg-white/[0.06] transition">{t("common.projects")}</a>
-              <a href="#contact" onClick={() => setMobileOpen(false)}
-                className="block px-5 py-3 text-sm text-gray-200 hover:bg-white/[0.06] transition border-t border-white/[0.04]">{t("common.contact")}</a>
-              <a href="/JoaoGraca-CV.pdf" target="_blank" rel="noopener noreferrer"
-                className="block px-5 py-3 text-sm text-gray-200 hover:bg-white/[0.06] transition border-t border-white/[0.04]">CV</a>
-              <div className="flex items-center justify-center gap-2 px-4 py-3 border-t border-white/[0.04]">
-                <SmallBtn onClick={() => setLang(lang === "en" ? "pt" : "en")} isDark={isDark}>
+            <div className="mobile-menu absolute right-0 top-full mt-2 z-50 rounded-xl shadow-2xl overflow-hidden min-w-[180px] animate-slide-up">
+              <a href="#projects" onClick={() => setMobileOpen(false)} className="mobile-menu-item block px-5 py-3 text-sm">{t("common.projects")}</a>
+              <a href="#contact" onClick={() => setMobileOpen(false)} className="mobile-menu-item block px-5 py-3 text-sm border-t-item">{t("common.contact")}</a>
+              <a href="/JoaoGraca-CV.pdf" target="_blank" rel="noopener noreferrer" className="mobile-menu-item block px-5 py-3 text-sm border-t-item">CV</a>
+              <div className="flex items-center justify-center gap-2 px-4 py-3 border-t-item">
+                <SmallBtn onClick={() => { setLang(lang === "en" ? "pt" : "en"); setMobileOpen(false) }}>
                   {lang === "en" ? "EN" : "PT"}
                 </SmallBtn>
-                <SmallBtn onClick={toggleTheme} isDark={isDark}>
+                <SmallBtn onClick={() => { toggleTheme(); setMobileOpen(false) }}>
                   {isDark ? "🌙" : "☀️"}
                 </SmallBtn>
               </div>
@@ -127,23 +117,18 @@ export default function Header() {
   )
 }
 
-function NavBtn({ href, children, isDark }) {
+function NavBtn({ href, children }) {
   return (
-    <a
-      href={href}
-      className="px-3 py-1.5 rounded-lg text-[13px] font-medium font-body text-gray-400 hover:text-gray-100 hover:bg-white/[0.06] transition-all"
-    >
+    <a href={href} className="nav-btn px-3 py-1.5 rounded-lg text-[13px] font-medium font-body no-underline">
       {children}
     </a>
   )
 }
 
-function SmallBtn({ onClick, children, isDark }) {
+function SmallBtn({ onClick, children }) {
   return (
-    <button
-      onClick={onClick}
-      className="px-2.5 py-1.5 rounded-lg text-[13px] font-semibold font-mono text-gray-400 hover:text-gray-100 hover:bg-white/[0.08] transition-all border-none bg-transparent cursor-pointer"
-    >
+    <button onClick={onClick}
+      className="nav-btn px-2.5 py-1.5 rounded-lg text-[13px] font-semibold font-mono border-none bg-transparent cursor-pointer">
       {children}
     </button>
   )

@@ -12,7 +12,7 @@ export default function App() {
 
   return (
     <PersonalityProvider>
-      <div className="min-h-screen relative" style={{ background: "#0a0f14" }}>
+      <div className="min-h-screen relative" style={{ background: "var(--bg-primary)", transition: "background 0.4s ease" }}>
         {/* Subtle noise texture */}
         <div className="noise-overlay" />
 
