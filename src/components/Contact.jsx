@@ -19,7 +19,6 @@ export default function Contact() {
           <p className="font-body text-[15px] leading-[1.7] mb-9" style={{ color: "var(--text-secondary)" }}>
             {personality ? t("sections.contact_line_2Personality") : t("sections.contact_line_2")}
           </p>
-
           <div className="flex flex-wrap justify-center gap-3">
             <ContactLink href="mailto:jopegraca@gmail.com" icon="📧" label="jopegraca@gmail.com" personality={personality} />
             <ContactLink href="https://www.linkedin.com/in/joaopmgraca/" icon="💼" label="LinkedIn" external personality={personality} />
@@ -33,25 +32,13 @@ export default function Contact() {
 
 function ContactLink({ href, icon, label, external = false, personality }) {
   return (
-    <a
-      href={href}
-      target={external ? "_blank" : undefined}
-      rel={external ? "noopener noreferrer" : undefined}
-      className="contact-link inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium font-body no-underline transition-all duration-300 hover:-translate-y-0.5"
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}
+      className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-medium font-body no-underline transition-all duration-300 hover:-translate-y-0.5 ${personality ? "tech-pill" : ""}`}
       style={{
         border: `1px solid ${personality ? "rgba(245,158,11,0.15)" : "var(--border)"}`,
         background: "var(--bg-card)",
         color: "var(--text-tertiary)",
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.background = "var(--bg-card-hover)"
-        e.currentTarget.style.borderColor = personality ? "rgba(245,158,11,0.35)" : "var(--border-hover)"
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.background = "var(--bg-card)"
-        e.currentTarget.style.borderColor = personality ? "rgba(245,158,11,0.15)" : "var(--border)"
-      }}
-    >
+      }}>
       <span>{icon}</span> {label}
     </a>
   )

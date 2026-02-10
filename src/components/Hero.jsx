@@ -12,7 +12,6 @@ function LinkedInIcon() {
     </svg>
   )
 }
-
 function GitHubIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
@@ -24,43 +23,27 @@ function GitHubIcon() {
 export default function Hero() {
   const { t } = useI18n()
   const { personality } = usePersonality()
-
-  // Mobile swipe for photo
   const touchStartX = useRef(0)
   const [showPhoto, setShowPhoto] = useState(false)
 
   return (
     <section className="min-h-[85vh] flex items-center relative overflow-hidden">
-      {/* Grid pattern */}
       <div className="grid-pattern" />
 
       {/* Gradient orbs */}
-      <div
-        className="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
-        style={{
-          background: personality
-            ? "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        className="absolute bottom-[20%] -left-[5%] w-[350px] h-[350px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
-        style={{
-          background: personality
-            ? "radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)",
-        }}
-      />
+      <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
+        style={{ background: personality ? "radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%)" : "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)" }} />
+      <div className="absolute bottom-[20%] -left-[5%] w-[350px] h-[350px] rounded-full blur-[60px] pointer-events-none transition-all duration-1000"
+        style={{ background: personality ? "radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)" : "radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)" }} />
 
-      {/* Desktop layout */}
+      {/* Desktop */}
       <div className="hidden md:grid max-w-[1100px] mx-auto px-6 pt-20 pb-16 w-full grid-cols-[1fr_auto] gap-12 items-center relative">
         <HeroContent t={t} personality={personality} />
         <HeroPhoto personality={personality} />
       </div>
 
-      {/* Mobile layout — horizontal swipe */}
-      <div
-        className="md:hidden w-full relative"
+      {/* Mobile — swipeable */}
+      <div className="md:hidden w-full relative"
         onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX }}
         onTouchEnd={(e) => {
           const dx = e.changedTouches[0].clientX - touchStartX.current
@@ -70,20 +53,18 @@ export default function Hero() {
       >
         {!showPhoto ? (
           <div className="px-6 pt-16 pb-10 w-full relative animate-fade-in">
-            <HeroContent t={t} personality={personality} />
-            <div className="flex items-center justify-center gap-2 mt-6 text-xs" style={{ color: "var(--text-muted)" }}>
-              <span style={{ opacity: 0.5 }}>swipe for photo →</span>
+            <HeroContent t={t} personality={personality} isMobile />
+            <div className="flex items-center justify-center mt-6 text-xs" style={{ color: "var(--text-muted)", opacity: 0.5 }}>
+              {t("common.swipePhoto")}
             </div>
           </div>
         ) : (
           <div className="px-6 pt-16 pb-10 w-full flex flex-col items-center justify-center min-h-[70vh] animate-fade-in">
             <HeroPhoto personality={personality} mobile />
-            <button
-              onClick={() => setShowPhoto(false)}
+            <button onClick={() => setShowPhoto(false)}
               className="mt-6 bg-transparent border-none cursor-pointer text-xs"
-              style={{ color: "var(--text-muted)" }}
-            >
-              ← swipe back
+              style={{ color: "var(--text-muted)" }}>
+              {t("common.swipeBack")}
             </button>
           </div>
         )}
@@ -92,10 +73,9 @@ export default function Hero() {
   )
 }
 
-function HeroContent({ t, personality }) {
+function HeroContent({ t, personality, isMobile = false }) {
   return (
     <div className="max-w-[640px]">
-      {/* Status badge */}
       <AnimatedText>
         <div className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold font-mono mb-5 transition-all duration-500 ${personality ? "personality-badge" : "normal-badge"}`}>
           <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ background: personality ? "#fbbf24" : "#22c55e" }} />
@@ -103,7 +83,6 @@ function HeroContent({ t, personality }) {
         </div>
       </AnimatedText>
 
-      {/* Title — key forces remount to avoid gradient paint bug */}
       <AnimatedText delay={0.1}>
         <h1 className="font-display text-[clamp(32px,5vw,60px)] font-normal leading-[1.1] mb-6 tracking-tight" style={{ color: "var(--text-primary)" }}>
           {personality ? t("personality.title") : t("hero.title")}{" "}
@@ -120,12 +99,12 @@ function HeroContent({ t, personality }) {
       </AnimatedText>
 
       <AnimatedText delay={0.25}>
-        <p className="font-body text-[14px] md:text-[15px] leading-[1.6] font-semibold mb-8 transition-colors duration-500" style={{ color: personality ? "#fbbf24" : "#60a5fa" }}>
+        <p className="font-body text-[14px] md:text-[15px] leading-[1.6] font-semibold mb-8 transition-colors duration-500"
+          style={{ color: personality ? "#fbbf24" : "#60a5fa" }}>
           {personality ? t("personality.tagline2") : t("hero.tagline2")}
         </p>
       </AnimatedText>
 
-      {/* Tech pills */}
       <AnimatedText delay={0.3}>
         <div className="flex flex-wrap gap-2 mb-7">
           {["React", "Node.js", "Figma", "Python", "OutSystems"].map(tech => (
@@ -136,27 +115,34 @@ function HeroContent({ t, personality }) {
         </div>
       </AnimatedText>
 
-      {/* Social icons + CTA */}
       <AnimatedText delay={0.4}>
         <div className="flex items-center gap-3 flex-wrap">
-          <a href="https://www.linkedin.com/in/joaopmgraca/" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/joaopmgraca/" target="_blank" rel="noopener noreferrer"
+            className={`social-icon-btn ${isMobile && personality ? "mobile-social" : ""}`} aria-label="LinkedIn">
             <LinkedInIcon />
           </a>
-          <a href="https://github.com/greengraca" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
+          <a href="https://github.com/greengraca" target="_blank" rel="noopener noreferrer"
+            className={`social-icon-btn ${isMobile && personality ? "mobile-social" : ""}`} aria-label="GitHub">
             <GitHubIcon />
           </a>
-          <a
-            href="#projects"
+          <a href="#projects"
             className="cta-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-[10px] text-white text-sm font-semibold font-body no-underline transition-all duration-300 hover:-translate-y-0.5"
             style={{
               background: personality ? "linear-gradient(135deg, #f59e0b, #ef4444)" : "linear-gradient(135deg, #3b82f6, #8b5cf6)",
               boxShadow: personality ? "0 4px 20px rgba(245,158,11,0.3)" : "0 4px 20px rgba(59,130,246,0.3)",
-            }}
-          >
+            }}>
             {personality ? t("personality.scrollCta") : t("hero.scrollCta")} ↓
           </a>
         </div>
       </AnimatedText>
+
+      {personality && (
+        <AnimatedText delay={0.5}>
+          <div className="mt-4 flex items-center gap-2 text-[11px] font-mono" style={{ color: "var(--text-muted)", opacity: 0.5 }}>
+            <span>🍄</span> <span>⛩️</span> <span style={{ letterSpacing: "0.05em" }}>vibes only</span>
+          </div>
+        </AnimatedText>
+      )}
     </div>
   )
 }
@@ -165,26 +151,24 @@ function HeroPhoto({ personality, mobile = false }) {
   return (
     <AnimatedText delay={0.2}>
       <div className="relative">
-        <div
-          className="overflow-hidden transition-transform duration-600"
+        <div className="overflow-hidden transition-transform duration-600"
           style={{
             width: mobile ? 240 : 280,
-            height: mobile ? 300 : 340,
+            height: mobile ? 360 : 340,
             borderRadius: 24,
             border: "1px solid var(--border)",
             boxShadow: "0 20px 80px rgba(0,0,0,0.4)",
             transform: personality ? "rotate(3deg)" : "none",
-          }}
-        >
+          }}>
           <img src="/profile.jpg" alt="João Graça" className="w-full h-full object-cover"
-            onError={(e) => { e.target.style.display = "none"; e.target.parentElement.style.background = "linear-gradient(135deg, #1e293b, #334155)" }}
-          />
+            onError={(e) => { e.target.style.display = "none"; e.target.parentElement.style.background = "linear-gradient(135deg, #1e293b, #334155)" }} />
         </div>
         <div className="absolute -top-3 -right-3 w-20 h-20 rounded-2xl transition-all duration-500"
           style={{ border: `2px solid ${personality ? "rgba(245,158,11,0.3)" : "rgba(59,130,246,0.2)"}`, transform: personality ? "rotate(12deg)" : "rotate(6deg)" }} />
         <div className="absolute -bottom-2 -left-2 w-[60px] h-[60px] rounded-xl transition-all duration-500"
           style={{ background: personality ? "rgba(245,158,11,0.06)" : "rgba(139,92,246,0.06)", border: `1px solid ${personality ? "rgba(245,158,11,0.15)" : "rgba(139,92,246,0.1)"}`, transform: personality ? "rotate(-8deg)" : "rotate(-3deg)" }} />
         {personality && <div className="absolute -top-5 left-5 text-[28px] animate-float">🐸</div>}
+        {personality && <div className="absolute -bottom-4 right-8 text-[18px] animate-float" style={{ animationDelay: "1s" }}>🍄</div>}
       </div>
     </AnimatedText>
   )

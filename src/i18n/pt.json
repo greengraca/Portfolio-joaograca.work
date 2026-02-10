@@ -14,7 +14,9 @@
     "allRights": "Todos os direitos reservados.",
     "madeWith": "Feito com",
     "and": "e",
-    "coffee": "demasiado café"
+    "coffee": "demasiado café",
+    "swipePhoto": "desliza para ver foto →",
+    "swipeBack": "← desliza para voltar"
   },
   "hero": {
     "title": "A construir produtos de",
@@ -41,13 +43,13 @@
     "projects": "Trabalho em Destaque",
     "projectsPersonality": "Coisas que Construí (maioritariamente à noite)",
     "projectsParagraph": "Salvo indicação contrária, desenhei e desenvolvi cada projeto do início ao fim.",
-    "projectsParagraphPersonality": "Cada um destes começou como 'isto deve ser fácil' e acabou como 3 semanas de rabbit hole. Sem arrependimentos.",
+    "projectsParagraphPersonality": "Cada um destes começou como 'isto deve ser fácil' e acabou como 3 semanas de rabbit hole. Sem arrependimentos. 🍄",
     "contact_title": "Vamos Conversar",
     "contact_titlePersonality": "Manda Mensagem",
     "contact_line_1": "Aberto a posições júnior/mid de OutSystems, projetos freelance ou colaborações.",
     "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn.",
     "contact_line_1Personality": "Procuras alguém que desenha E programa? É literalmente o que eu faço.",
-    "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível."
+    "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível. 🍄"
   },
   "projects": {
     "crypto-tool": {
@@ -61,10 +63,7 @@
         "Visão geral com gráficos e estatísticas",
         "Suporte para várias carteiras e tokens"
       ],
-      "links": {
-        "figma": "Figma",
-        "github": "Github"
-      }
+      "links": { "figma": "Figma", "github": "Github" }
     },
     "mtg-bot": {
       "title": "MTG Discord Bot",
@@ -77,9 +76,7 @@
         "Comandos de administrador e registo de partidas",
         "Mantido e melhorado desde o lançamento"
       ],
-      "links": {
-        "github": "Github"
-      }
+      "links": { "github": "Github" }
     },
     "gen-art-svg": {
       "title": "Motor de Arte Generativa SVG",
@@ -91,9 +88,7 @@
         "Controlos de parâmetros",
         "Resultados determinísticos com seed"
       ],
-      "links": {
-        "github": "Github"
-      }
+      "links": { "github": "Github" }
     },
     "company-site": {
       "title": "Design de Website Empresarial",
@@ -105,9 +100,7 @@
         "Layout responsivo com navegação clara",
         "Identidade visual e branding"
       ],
-      "links": {
-        "figma": "Figma"
-      }
+      "links": { "figma": "Figma" }
     },
     "social-designs": {
       "title": "Designs para Redes Sociais",

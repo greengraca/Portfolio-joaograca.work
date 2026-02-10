@@ -12,38 +12,20 @@ export default function ProjectList() {
   const projects = useProjects()
   const [selected, setSelected] = useState(null)
 
-  // Calculate which projects should be full width
-  // Default wide indices: 0 and 3
-  // Also force last project to full width if it would be alone on a row
   const fullWidthSet = useMemo(() => {
     const wideSet = new Set([0, 3])
 
-    // Simulate grid to check if last item ends up alone
+    // Check if last item would be alone on its row
     let col = 0
     for (let i = 0; i < projects.length; i++) {
       const span = wideSet.has(i) ? 2 : 1
-      if (col + span > 2) { col = 0 } // new row
+      if (col + span > 2) col = 0
+      if (i === projects.length - 1 && col === 0 && span === 1) {
+        wideSet.add(i) // force full width
+      }
       col += span
       if (col >= 2) col = 0
     }
-
-    // If after placing all items, the last item started on col 0 and was span 1,
-    // it's alone on its row → make it full width
-    let colCheck = 0
-    let lastItemCol = 0
-    for (let i = 0; i < projects.length; i++) {
-      const span = wideSet.has(i) ? 2 : 1
-      if (colCheck + span > 2) colCheck = 0
-      if (i === projects.length - 1) {
-        lastItemCol = colCheck
-        if (colCheck === 0 && span === 1) {
-          wideSet.add(i)
-        }
-      }
-      colCheck += span
-      if (colCheck >= 2) colCheck = 0
-    }
-
     return wideSet
   }, [projects.length])
 
@@ -62,22 +44,11 @@ export default function ProjectList() {
 
       <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
         {projects.map((p, i) => (
-          <ProjectCard
-            key={p.id}
-            project={p}
-            index={i}
-            isFullWidth={fullWidthSet.has(i)}
-            onClick={() => setSelected(p)}
-          />
+          <ProjectCard key={p.id} project={p} index={i} isFullWidth={fullWidthSet.has(i)} onClick={() => setSelected(p)} />
         ))}
       </div>
 
-      {selected && (
-        <ProjectModal
-          project={selected}
-          onClose={() => setSelected(null)}
-        />
-      )}
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   )
 }

@@ -4,6 +4,7 @@ import ProjectList from "./components/ProjectList"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import PersonalityPopup from "./components/PersonalityPopup"
+import PersonalityBackground from "./components/PersonalityBackground"
 import { PersonalityProvider } from "./contexts/PersonalityContext"
 import { injectSpeedInsights } from '@vercel/speed-insights'
 
@@ -13,8 +14,8 @@ export default function App() {
   return (
     <PersonalityProvider>
       <div className="min-h-screen relative" style={{ background: "var(--bg-primary)", transition: "background 0.4s ease" }}>
-        {/* Subtle noise texture */}
         <div className="noise-overlay" />
+        <PersonalityBackground />
 
         <div className="relative z-[1]">
           <Header />
