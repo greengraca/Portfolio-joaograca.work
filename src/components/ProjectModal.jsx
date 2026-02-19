@@ -67,7 +67,6 @@ export default function ProjectModal({ project, onClose }) {
 
           <div className="px-6 md:px-8 pt-7 pb-9">
             <div className="flex items-center gap-2.5 mb-1.5">
-              {personality && <span className="text-lg">{project.icon}</span>}
               <span className="text-xs font-mono font-semibold" style={{ color: project.accentDark }}>{project.year}</span>
               <span style={{ color: "var(--text-muted)" }}>•</span>
               <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{project.tech.join(" · ")}</span>

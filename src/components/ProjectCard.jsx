@@ -82,7 +82,6 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
       <div className="p-5 pb-6 flex-1 flex flex-col"
         style={{ position: "relative", zIndex: 3, background: "var(--card-inner-bg)" }}>
         <div className="flex items-start gap-2">
-          {personality && <span className="text-lg mt-0.5 shrink-0">{project.icon}</span>}
           <div className="flex-1 min-w-0">
             <h3 className="font-display text-[22px] font-normal mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>
               {project.title}
