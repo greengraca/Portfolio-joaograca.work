@@ -66,13 +66,13 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           <div className="px-6 md:px-8 pt-7 pb-9">
-            <div className="flex items-center gap-2.5 mb-1.5">
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-3">
               <span className="text-xs font-mono font-semibold" style={{ color: project.accentDark }}>{project.year}</span>
-              <span style={{ color: "var(--text-muted)" }}>•</span>
+              <span className="hidden md:inline" style={{ color: "var(--text-muted)" }}>•</span>
               <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{project.tech.join(" · ")}</span>
             </div>
 
-            <h2 className="font-display text-[28px] md:text-[32px] font-normal mb-1" style={{ color: "var(--text-primary)" }}>{title}</h2>
+            <h2 className="font-display text-[28px] md:text-[32px] font-normal mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>{title}</h2>
             <p className="text-sm font-medium mb-5" style={{ color: project.accentDark }}>{subtitle}</p>
             <p className="font-body text-[15px] leading-[1.8] mb-6" style={{ color: "var(--text-secondary)" }}>{description}</p>
 
