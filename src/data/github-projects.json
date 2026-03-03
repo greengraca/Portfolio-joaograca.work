@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "id": "taskpad",
+    "title": "Taskpad",
+    "subtitle": "A notepad like, lightweight to-do list to manage your proje…",
+    "description": "A notepad like, lightweight to-do list to manage your projects and tasks",
+    "details": [],
+    "year": "2026",
+    "tech": [
+      "JavaScript"
+    ],
+    "color": "#F59E0B",
+    "accentDark": "#FBBF24",
+    "icon": null,
+    "cover": null,
+    "images": [],
+    "links": [
+      {
+        "id": "github",
+        "href": "https://github.com/greengraca/taskpad",
+        "label": "Github"
+      },
+      {
+        "id": "live",
+        "href": "https://taskpad-phi.vercel.app/",
+        "label": "Live"
+      }
+    ],
+    "source": "github"
+  }
+]
