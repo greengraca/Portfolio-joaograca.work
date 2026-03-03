@@ -8,7 +8,8 @@
     "build": "node scripts/fetch-github-projects.mjs && vite build",
     "github:fetch": "node scripts/fetch-github-projects.mjs",
     "preview": "vite preview",
-    "img:build": "node scripts/optimize-and-manifest.mjs"
+    "img:build": "node scripts/optimize-and-manifest.mjs",
+    "og:build": "node scripts/generate-og-images.mjs"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.2.0",
