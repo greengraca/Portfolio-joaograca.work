@@ -3,3 +3,6 @@
 /.vite
 .env
 .DS_Store
+CLAUDE.md
+.claude/
+PORTFOLIO_SETUP_INSTRUCTIONS.md

@@ -1,6 +1,7 @@
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 import ProjectList from "./components/ProjectList"
+import GithubProjectList from "./components/GithubProjectList"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 import PersonalityPopup from "./components/PersonalityPopup"
@@ -22,6 +23,7 @@ export default function App() {
           <main>
             <Hero />
             <ProjectList />
+            <GithubProjectList />
             <Contact />
           </main>
           <Footer />

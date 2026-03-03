@@ -49,7 +49,11 @@
     "contact_line_1": "Aberto a posições júnior/mid de OutSystems, projetos freelance ou colaborações.",
     "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn.",
     "contact_line_1Personality": "Procuras alguém que desenha E programa? É literalmente o que eu faço.",
-    "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível."
+    "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível.",
+    "moreProjects": "Do Meu GitHub",
+    "moreProjectsPersonality": "Direto dos Repos",
+    "moreProjectsParagraph": "Outros projetos disponíveis no meu GitHub.",
+    "moreProjectsParagraphPersonality": "O resto do iceberg. Estes vivem no meu GitHub."
   },
   "projects": {
     "crypto-tool": {

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useScrollReveal from "../hooks/useScrollReveal"
 import { usePersonality } from "../contexts/PersonalityContext"
+import { SiGithub } from "react-icons/si"
 
 export default function ProjectCard({ project, onClick, index, isFullWidth }) {
   const [ref, vis] = useScrollReveal()
@@ -71,6 +72,13 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
           background: "linear-gradient(to top, var(--card-inner-bg) 12px, transparent 100%)",
           pointerEvents: "none", zIndex: 2,
         }} />
+
+        {project.source === "github" && (
+          <div className="absolute top-3.5 left-3.5 w-7 h-7 rounded-lg bg-black/50 backdrop-blur-[10px] border border-white/10 flex items-center justify-center"
+            style={{ zIndex: 5 }}>
+            <SiGithub size={14} color="#94a3b8" />
+          </div>
+        )}
 
         <div className="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-[10px] border border-white/10 text-[11px] font-semibold font-mono"
           style={{ color: "#94a3b8", zIndex: 5 }}>
