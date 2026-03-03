@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react"
+import { X } from "lucide-react"
 import { useI18n } from "../i18n/I18nProvider"
 import { usePersonality } from "../contexts/PersonalityContext"
 
@@ -28,9 +29,12 @@ export default function ProjectModal({ project, onClose }) {
     return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", h) }
   }, [onClose, lightboxIdx])
 
-  const coverSrc = project.cover
-    ? `${project.cover}-1200.webp`
-    : project.images?.[0] ? `${project.images[0]}-1200.webp` : "/images/placeholder.png"
+  const isExternal = (src) => src?.startsWith("http")
+  const hasImage = project.cover || project.images?.length > 0
+  const rawCover = project.cover || project.images?.[0] || null
+  const coverSrc = rawCover
+    ? (isExternal(rawCover) ? rawCover : `${rawCover}-1200.webp`)
+    : null
 
   const prev = useCallback(() => setLightboxIdx(i => (i - 1 + allImages.length) % allImages.length), [allImages.length])
   const next = useCallback(() => setLightboxIdx(i => (i + 1) % allImages.length), [allImages.length])
@@ -52,17 +56,26 @@ export default function ProjectModal({ project, onClose }) {
 
           {/* Close button overlaid on image */}
           <button onClick={onClose}
-            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-[10px] border bg-black/50 backdrop-blur-[10px] text-base flex items-center justify-center cursor-pointer hover:bg-black/70 transition"
-            style={{ borderColor: "rgba(255,255,255,0.15)", color: "#94a3b8" }}>×</button>
+            className="absolute top-4 right-4 z-20 w-9 h-9 rounded-[10px] border bg-black/50 backdrop-blur-[10px] flex items-center justify-center cursor-pointer hover:bg-black/70 transition"
+            style={{ borderColor: "rgba(255,255,255,0.15)", color: "#94a3b8" }}>
+            <X size={16} />
+          </button>
 
           {/* Cover image — flush to top */}
-          <div className="w-full overflow-hidden cursor-pointer rounded-t-3xl"
-            style={{ height: 280, background: `linear-gradient(135deg, ${project.color}20, ${project.color}08)` }}
-            onClick={() => allImages.length > 0 && setLightboxIdx(0)}>
-            <img src={coverSrc} alt={title}
-              className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
-              style={{ display: "block" }}
-              onError={(e) => { e.target.style.display = "none" }} />
+          <div className="w-full overflow-hidden rounded-t-3xl"
+            style={{ height: 280, background: `linear-gradient(135deg, ${project.color}25, ${project.color}08)` }}
+            onClick={() => allImages.length > 0 && setLightboxIdx(0)}
+            {...(allImages.length > 0 ? { className: "w-full overflow-hidden cursor-pointer rounded-t-3xl" } : {})}>
+            {hasImage && coverSrc ? (
+              <img src={coverSrc} alt={title}
+                className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+                style={{ display: "block" }}
+                onError={(e) => { e.target.style.display = "none" }} />
+            ) : (
+              <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {project.icon && <span style={{ fontSize: 64, opacity: 0.5 }}>{project.icon}</span>}
+              </div>
+            )}
           </div>
 
           <div className="px-6 md:px-8 pt-7 pb-9">
@@ -72,7 +85,7 @@ export default function ProjectModal({ project, onClose }) {
               <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{project.tech.join(" · ")}</span>
             </div>
 
-            <h2 className="font-display text-[28px] md:text-[32px] font-normal mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>{title}</h2>
+            <h2 className="font-body text-[28px] md:text-[32px] font-bold mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>{title}</h2>
             <p className="text-sm font-medium mb-5" style={{ color: project.accentDark }}>{subtitle}</p>
             <p className="font-body text-[15px] leading-[1.8] mb-6" style={{ color: "var(--text-secondary)" }}>{description}</p>
 
@@ -94,7 +107,7 @@ export default function ProjectModal({ project, onClose }) {
                   <a key={i} href={l.href} target="_blank" rel="noopener noreferrer"
                     className="modal-link font-body px-4 py-2.5 rounded-[10px] border text-[13px] font-semibold no-underline flex items-center gap-1.5"
                     style={{ borderColor: personality ? "rgba(245,158,11,0.2)" : "var(--border)", color: "var(--text-primary)" }}>
-                    {linkLabels[l.id] || l.id} ↗
+                    {linkLabels[l.id] || l.label || l.id.charAt(0).toUpperCase() + l.id.slice(1)} ↗
                   </a>
                 ))}
               </div>
@@ -108,7 +121,7 @@ export default function ProjectModal({ project, onClose }) {
                     <button key={i} onClick={() => setLightboxIdx(i)}
                       className="gallery-thumb relative rounded-xl overflow-hidden border transition group cursor-pointer"
                       style={{ borderColor: "var(--border-subtle)" }}>
-                      <img src={`${base}-800.webp`} alt={`${title} ${i + 1}`} loading="lazy"
+                      <img src={isExternal(base) ? base : `${base}-800.webp`} alt={`${title} ${i + 1}`} loading="lazy"
                         className="w-full h-28 md:h-32 object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
                         style={{ display: "block" }}
                         onError={(e) => { e.target.src = "/images/placeholder.png" }} />
@@ -126,7 +139,7 @@ export default function ProjectModal({ project, onClose }) {
         <div className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={(e) => { if (e.target === e.currentTarget) setLightboxIdx(-1) }}>
           <div className="relative max-w-5xl w-full">
-            <img src={`${allImages[lightboxIdx]}-1200.webp`} alt={`${title}`}
+            <img src={isExternal(allImages[lightboxIdx]) ? allImages[lightboxIdx] : `${allImages[lightboxIdx]}-1200.webp`} alt={`${title}`}
               className="w-full max-h-[80vh] object-contain rounded-xl"
               onError={(e) => { e.target.src = "/images/placeholder.png" }} />
             <button onClick={() => setLightboxIdx(-1)}

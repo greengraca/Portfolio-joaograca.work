@@ -8,11 +8,12 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
   const [hovered, setHovered] = useState(false)
   const { personality } = usePersonality()
 
-  const coverSrc = project.cover
-    ? `${project.cover}-800.webp`
-    : project.images?.[0]
-      ? `${project.images[0]}-800.webp`
-      : "/images/placeholder.png"
+  const isExternal = (src) => src?.startsWith("http")
+  const hasImage = project.cover || project.images?.length > 0
+  const rawCover = project.cover || project.images?.[0] || null
+  const coverSrc = rawCover
+    ? (isExternal(rawCover) ? rawCover : `${rawCover}-800.webp`)
+    : null
 
   /*
    * GAP FIX:
@@ -51,20 +52,30 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
     >
       {/* Image wrapper — NO overflow:hidden! Card is the only clip boundary. */}
       <div style={{ position: "relative", width: "100%", height: 200, flexShrink: 0 }}>
-        <img
-          src={coverSrc}
-          alt={project.title}
-          loading="lazy"
-          style={{
+        {hasImage && coverSrc ? (
+          <img
+            src={coverSrc}
+            alt={project.title}
+            loading="lazy"
+            style={{
+              width: "100%", height: "100%",
+              objectFit: "cover", objectPosition: "top",
+              display: "block",
+              transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+              transform: hovered ? "scale(1.05)" : "scale(1)",
+              willChange: "transform",
+            }}
+            onError={(e) => { e.target.style.display = "none" }}
+          />
+        ) : (
+          <div style={{
             width: "100%", height: "100%",
-            objectFit: "cover", objectPosition: "top",
-            display: "block",
-            transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-            transform: hovered ? "scale(1.05)" : "scale(1)",
-            willChange: "transform",
-          }}
-          onError={(e) => { e.target.style.display = "none" }}
-        />
+            background: `linear-gradient(135deg, ${project.color}25, ${project.color}08)`,
+            display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
+            {project.icon && <span style={{ fontSize: 48, opacity: 0.6 }}>{project.icon}</span>}
+          </div>
+        )}
 
         {/* Gradient extends 10px BELOW the 200px wrapper to cover scaled image bleed */}
         <div style={{
@@ -91,7 +102,7 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
         style={{ position: "relative", zIndex: 3, background: "var(--card-inner-bg)" }}>
         <div className="flex items-start gap-2">
           <div className="flex-1 min-w-0">
-            <h3 className="font-display text-[22px] font-normal mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>
+            <h3 className="font-body text-[22px] font-semibold mb-1 leading-tight" style={{ color: "var(--text-primary)" }}>
               {project.title}
             </h3>
             <p className="text-xs font-semibold font-mono mb-3" style={{ color: project.accentDark }}>

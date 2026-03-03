@@ -29,15 +29,13 @@ const DEFAULT_COLORS = { color: "#64748B", accentDark: "#94A3B8" }
 // Topics to exclude from tech tags (not useful as tech labels)
 const EXCLUDED_TOPICS = new Set([TOPIC_TAG, "portfolio", "project", "personal"])
 
+// Image extensions to look for in .portfolio/ directory
+const IMAGE_EXTENSIONS = new Set(["png", "jpg", "jpeg", "webp", "avif", "gif", "svg"])
+
 function humanize(repoName) {
   return repoName
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase())
-}
-
-function truncate(str, max) {
-  if (!str || str.length <= max) return str || ""
-  return str.slice(0, max - 1).trimEnd() + "\u2026"
 }
 
 function deriveYear(createdAt, pushedAt) {
@@ -78,6 +76,38 @@ async function fetchPortfolioJson(repo) {
   } catch {
     return null
   }
+}
+
+async function fetchPortfolioImages(repo) {
+  // List files in .portfolio/ directory via GitHub API
+  const url = `https://api.github.com/repos/${repo.full_name}/contents/.portfolio`
+  const files = await fetchJSON(url)
+  if (!files || !Array.isArray(files)) return { cover: null, images: [] }
+
+  const rawBase = `https://raw.githubusercontent.com/${repo.full_name}/${repo.default_branch}/.portfolio`
+
+  let cover = null
+  const images = []
+
+  for (const file of files) {
+    if (file.type !== "file") continue
+    const ext = file.name.split(".").pop()?.toLowerCase()
+    if (!IMAGE_EXTENSIONS.has(ext)) continue
+
+    const rawUrl = `${rawBase}/${file.name}`
+    const nameLower = file.name.toLowerCase()
+
+    if (nameLower.startsWith("cover")) {
+      cover = rawUrl
+    } else {
+      images.push({ name: file.name, url: rawUrl })
+    }
+  }
+
+  // Sort images by filename for consistent ordering
+  images.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
+
+  return { cover, images: images.map((i) => i.url) }
 }
 
 async function main() {
@@ -139,19 +169,26 @@ async function main() {
       links.push({ id: "live", href: repo.homepage, label: "Live" })
     }
 
+    // Fetch images from .portfolio/ directory
+    console.log(`  Fetching images for "${repo.name}"...`)
+    const repoImages = await fetchPortfolioImages(repo)
+    if (repoImages.cover) console.log(`    Cover: ${repoImages.cover}`)
+    if (repoImages.images.length > 0) console.log(`    ${repoImages.images.length} additional image(s)`)
+    if (!repoImages.cover && repoImages.images.length === 0) console.log(`    No images found in .portfolio/`)
+
     projects.push({
       id: repo.name,
       title: meta?.title || humanize(repo.name),
-      subtitle: meta?.subtitle || truncate(repo.description, 60),
+      subtitle: meta?.subtitle || repo.description || "",
       description: meta?.description || repo.description || "",
       details: meta?.details || [],
-      year: deriveYear(repo.created_at, repo.pushed_at),
+      year: meta?.year || deriveYear(repo.created_at, repo.pushed_at),
       tech,
       color: meta?.color || langColors.color,
       accentDark: meta?.accentDark || langColors.accentDark,
       icon: meta?.icon || null,
-      cover: null,
-      images: [],
+      cover: repoImages.cover,
+      images: repoImages.images,
       links,
       source: "github",
       _order: meta?.order ?? 999,
