@@ -11,7 +11,7 @@ export default function PersonalityPopup() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (scrollY > 400 && !dismissed) setShow(true)
+    if (scrollY > 50 && !dismissed) setShow(true)
   }, [scrollY, dismissed])
 
   if (!show || dismissed) return null

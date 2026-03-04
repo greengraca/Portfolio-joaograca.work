@@ -176,7 +176,7 @@ async function main() {
     if (repoImages.images.length > 0) console.log(`    ${repoImages.images.length} additional image(s)`)
     if (!repoImages.cover && repoImages.images.length === 0) console.log(`    No images found in .portfolio/`)
 
-    projects.push({
+    const project = {
       id: repo.name,
       title: meta?.title || humanize(repo.name),
       subtitle: meta?.subtitle || repo.description || "",
@@ -193,7 +193,15 @@ async function main() {
       source: "github",
       _order: meta?.order ?? 999,
       _pushedAt: repo.pushed_at,
-    })
+    }
+
+    // Pass through optional Portuguese translation fields
+    if (meta?.titlePT) project.titlePT = meta.titlePT
+    if (meta?.subtitlePT) project.subtitlePT = meta.subtitlePT
+    if (meta?.descriptionPT) project.descriptionPT = meta.descriptionPT
+    if (meta?.detailsPT) project.detailsPT = meta.detailsPT
+
+    projects.push(project)
   }
 
   // Sort: by .portfolio.json order first, then by pushed_at descending
