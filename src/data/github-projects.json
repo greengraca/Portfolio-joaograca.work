@@ -40,7 +40,17 @@
         "label": "Live"
       }
     ],
-    "source": "github"
+    "source": "github",
+    "titlePT": "TaskPad",
+    "subtitlePT": "As tuas tarefas, em todo o lado — PWA e desktop num só código",
+    "descriptionPT": "Um gestor de tarefas feito para rapidez e colaboração em tempo real. Atualizações otimistas local-first mantêm a interface instantânea enquanto o Firestore sincroniza tudo em segundo plano. Disponível como PWA no Vercel e app nativa de desktop via Tauri, a partir de um único codebase React sem bibliotecas de estado.",
+    "detailsPT": [
+      "Colaboração em equipa em tempo real com projetos partilhados, avatares pixel-art e cofre de passwords encriptado",
+      "Sistema de notas integrado com renderização Markdown e navegação por wikilinks",
+      "Arquitetura local-first — atualizações otimistas com sincronização cloud debounced",
+      "Hooks personalizados de drag-and-drop para reordenar tarefas, tabs e atalhos",
+      "Disponível como PWA e app nativa de desktop (Tauri) a partir de um só codebase"
+    ]
   },
   {
     "id": "larnossasenhoradaesperanca",
@@ -83,6 +93,14 @@
         "label": "Live"
       }
     ],
-    "source": "github"
+    "source": "github",
+    "subtitlePT": "Site cinematográfico para um lar de idosos premium",
+    "descriptionPT": "Um website institucional de alta fidelidade para um lar residencial de idosos em Portugal. Construído com animações GSAP acionadas por scroll, um sistema de design personalizado e acolhedor, e um efeito de cartões empilháveis que transforma a navegação dos serviços numa experiência tátil. Cada detalhe — da textura de ruído à hierarquia tipográfica de quatro fontes — é afinado para transmitir confiança e calor.",
+    "detailsPT": [
+      "Efeito de cartões empilháveis acionado por scroll com coreografia GSAP ScrollTrigger",
+      "Sistema de design personalizado — paleta cream/stone/sage/rose com glassmorfismo e textura de ruído",
+      "Hierarquia tipográfica de quatro fontes: Cormorant Garamond, Inter, Outfit, IBM Plex Mono",
+      "Totalmente responsivo com navbar de vidro fosco sensível ao scroll e menu mobile animado"
+    ]
   }
 ]
