@@ -44,6 +44,15 @@ function PythonIcon({ colored }) {
     </svg>
   )
 }
+function CloudAIIcon({ colored }) {
+  const c = colored ? "#38BDF8" : "currentColor"
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke={c} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+      <path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.8A3.5 3.5 0 0 0 7 18z"/>
+      <path d="M12 11l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z"/>
+    </svg>
+  )
+}
 function OutSystemsIcon({ colored }) {
   return (
     <svg viewBox="0 0 25 26" width="13" height="14" fill={colored ? "#E8372C" : "currentColor"}>
@@ -63,6 +72,7 @@ function MapPinIcon() {
 const techIconMap = {
   React: ReactIcon,
   "Node.js": NodeIcon,
+  "Cloud & AI": CloudAIIcon,
   Figma: FigmaIcon,
   Python: PythonIcon,
   OutSystems: OutSystemsIcon,
@@ -165,7 +175,7 @@ function HeroContent({ t, personality, isMobile = false }) {
 
       <AnimatedText delay={0.3}>
         <div className="flex flex-wrap gap-2 mb-7">
-          {["React", "Node.js", "Figma", "Python", "OutSystems"].map(tech => {
+          {["React", "Node.js", "Cloud & AI", "Figma", "Python", "OutSystems"].map(tech => {
             const Icon = techIconMap[tech]
             return (
               <span key={tech} className="tech-pill inline-flex items-center gap-[6px] px-3 py-[5px] rounded-lg text-xs font-medium font-mono cursor-default">

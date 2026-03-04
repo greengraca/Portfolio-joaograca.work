@@ -21,8 +21,8 @@
   "hero": {
     "title": "A construir produtos de",
     "titleHighlight": "wireframe a produção",
-    "tagline1": "OutSystems Associate Developer com competências full-stack e de design. Levo projetos do conceito ao Figma até ao código — com atenção ao design de interfaces, usabilidade e arquitetura limpa.",
-    "tagline2": "Aberto a posições júnior/mid de OutSystems.",
+    "tagline1": "Dev full-stack React com competências de UI/UX e design de produto. Levo projetos do conceito ao Figma até ao código em produção — com foco em entregas rápidas, manutenção fácil e arquitetura limpa, com interesse crescente em workflows de Cloud & AI.",
+    "tagline2": "Disponível para projetos freelance e posições full-stack React (remoto ou Portugal).",
     "scrollCta": "Ver o meu trabalho",
     "statusBadge": "Disponível para oportunidades"
   },
@@ -33,8 +33,8 @@
     "off": "OFF",
     "title": "A construir cenas fixes com",
     "titleHighlight": "código & quantidades questionáveis de café",
-    "tagline1": "Dev full-stack que passou de mockups em Figma a ferramentas NFT e bots de Discord. Eu vibe code, desenho e faço deploy. Se está num ecrã, provavelmente tentei construí-lo às 2 da manhã.",
-    "tagline2": "À procura da próxima aventura. Contrata-me antes que alguém o faça.",
+    "tagline1": "Dev full-stack que passou de mockups em Figma a dashboards em React e bots de Discord. Eu desenho, eu programo, eu faço deploy — e tenho-me interessado por tooling de Cloud e AI.",
+    "tagline2": "A pegar em gigs freelance + aberto a posições full-stack React.",
     "scrollCta": "Vê o que fiz",
     "statusBadge": "// vibe_coding = true",
     "subtitle": "Vibe Coder Extraordinário"
@@ -46,9 +46,9 @@
     "projectsParagraphPersonality": "Cada um destes começou como 'isto deve ser fácil' e acabou como 3 semanas de rabbit hole. Sem arrependimentos.",
     "contact_title": "Vamos Conversar",
     "contact_titlePersonality": "Manda Mensagem",
-    "contact_line_1": "Aberto a posições júnior/mid de OutSystems, projetos freelance ou colaborações.",
+    "contact_line_1": "Aberto a projetos freelance e posições full-stack React (web apps, dashboards, landing pages). Também tenho experiência com OutSystems.",
     "contact_line_2": "A melhor forma de me contactar é por email ou LinkedIn.",
-    "contact_line_1Personality": "Procuras alguém que desenha E programa? É literalmente o que eu faço.",
+    "contact_line_1Personality": "Precisas de um MVP em React e de alguém que desenha E programa? É literalmente o que eu faço.",
     "contact_line_2Personality": "Manda email. Ou LinkedIn. Ou pombo-correio. Sou flexível.",
     "moreProjects": "Do Meu GitHub",
     "moreProjectsPersonality": "Direto dos Repos",
@@ -72,7 +72,7 @@
     "mtg-bot": {
       "title": "MTG Discord Bot",
       "subtitle": "Registo de jogos e estatísticas",
-      "description": "Regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e armazena estatísticas. Mantido e usado diariamente por 100+ pessoas.",
+      "description": "Bot de Discord em produção que regista jogos de Magic: The Gathering, gere temporizadores em canais de voz e armazena estatísticas. Mantido e usado diariamente por 100+ pessoas.",
       "descPersonality": "O meu grupo de Commander precisava de um bot. Construí um. Agora 100+ pessoas usam-no diariamente. Engenharia nerd no seu melhor.",
       "details": [
         "Temporizadores em canais de voz com pausa/retoma",

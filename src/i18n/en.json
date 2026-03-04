@@ -21,8 +21,8 @@
   "hero": {
     "title": "Building products from",
     "titleHighlight": "wireframe to deployment",
-    "tagline1": "OutSystems Associate Developer with full-stack & design skills. I take projects from concept through Figma to production code — with attention to UI design, usability, and clean architecture.",
-    "tagline2": "Open to junior/mid OutSystems roles.",
+    "tagline1": "Full-stack React developer with UI/UX and product design skills. I take projects from concept through Figma to production code — focused on fast, maintainable builds and clean architecture, with a growing interest in Cloud & AI workflows.",
+    "tagline2": "Open to freelance work and full-stack React roles (remote or Portugal).",
     "scrollCta": "See my work",
     "statusBadge": "Available for opportunities"
   },
@@ -33,8 +33,8 @@
     "off": "OFF",
     "title": "Building cool stuff with",
     "titleHighlight": "code & questionable amounts of coffee",
-    "tagline1": "Full-stack dev who went from Figma mockups to NFT tools to Discord bots. I vibe code, I design, I deploy. If it's on a screen, I've probably tried to build it at 2am.",
-    "tagline2": "Currently looking for my next adventure. Hire me before someone else does.",
+    "tagline1": "Full-stack dev who went from Figma mockups to React dashboards to Discord bots. I design, I code, I deploy — and I've been nerding out on Cloud + AI tooling lately.",
+    "tagline2": "Taking freelance gigs + open to full-stack React roles. Let's ship something.",
     "scrollCta": "Check the goods",
     "statusBadge": "// vibe_coding = true",
     "subtitle": "Vibe Coder Extraordinaire"
@@ -46,9 +46,9 @@
     "projectsParagraphPersonality": "Every one of these started as 'this should be easy' and ended as a 3-week rabbit hole. No regrets.",
     "contact_title": "Let's Talk",
     "contact_titlePersonality": "Slide Into My DMs",
-    "contact_line_1": "I'm open to junior/mid OutSystems roles, freelance projects, or collaborations.",
+    "contact_line_1": "Open to freelance projects and full-stack React roles (web apps, dashboards, landing pages). OutSystems experience too.",
     "contact_line_2": "Best way to reach me is by email or LinkedIn.",
-    "contact_line_1Personality": "Looking for someone who can design AND code? That's literally my thing.",
+    "contact_line_1Personality": "Need a React MVP and someone who can design AND code? That's literally my thing.",
     "contact_line_2Personality": "Email me. Or LinkedIn. Or carrier pigeon. I'm flexible.",
     "moreProjects": "From My GitHub",
     "moreProjectsPersonality": "Straight From the Repos",
@@ -59,20 +59,21 @@
     "crypto-tool": {
       "title": "Crypto Portfolio Tool",
       "subtitle": "API-based tracker",
-      "description": "Tool that allowed users to track their crypto portfolio using multiple APIs designed and built during NFT project development.",
-      "descPersonality": "Built this during the NFT craze. A full crypto portfolio tracker with live prices, wallet support, and clean dashboards. Was it rational? No. Was it fun? Absolutely.",
+      "description": "Full-stack React + Node portfolio tracker built during NFT project development, integrating multiple APIs for live prices and holdings.",
+      "descPersonality": "Built this during the NFT craze: a full crypto portfolio tracker with React dashboards, Node APIs, and live prices. Was it rational? No. Was it fun? Absolutely.",
       "details": [
-        "API integrations for live price updates",
-        "Clean UI designs built in Figma",
+        "React dashboard UI + component system",
+        "Node.js services integrating multiple price APIs",
         "Portfolio overview with charts and statistics",
-        "Supporting various wallets and tokens"
+        "Support for various wallets and tokens",
+        "UI designed in Figma"
       ],
       "links": { "figma": "Figma", "github": "Github" }
     },
     "mtg-bot": {
       "title": "MTG Discord Bot",
       "subtitle": "Game tracking & stats",
-      "description": "Tracks Magic: The Gathering games, manages timers via voice channels, and records player & deck statistics. Actively maintained and used daily by 100+ people.",
+      "description": "Production Discord bot that tracks Magic: The Gathering games, manages voice-channel timers, and records player & deck statistics. Actively maintained and used daily by 100+ people.",
       "descPersonality": "My Commander playgroup needed a bot. So I built one. Now 100+ people use it daily to track games, run timers, and argue about statistics. Peak nerd engineering.",
       "details": [
         "Voice channel timers with pause/resume",
