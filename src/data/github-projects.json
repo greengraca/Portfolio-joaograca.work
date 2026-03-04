@@ -41,5 +41,48 @@
       }
     ],
     "source": "github"
+  },
+  {
+    "id": "larnossasenhoradaesperanca",
+    "title": "Lar Nossa Senhora da Esperança",
+    "subtitle": "Cinematic marketing site for a premium care home",
+    "description": "A high-fidelity institutional website for a residential elderly care facility in Portugal. Built with scroll-driven GSAP animations, a warm custom design system, and a stacking card effect that turns service browsing into a tactile experience. Every detail — from the noise texture overlay to the four-font typographic hierarchy — is tuned to convey trust and warmth.",
+    "details": [
+      "Scroll-triggered stacking card effect with pinned GSAP ScrollTrigger choreography",
+      "Custom design system — cream/stone/sage/rose palette with glassmorphism and noise overlay",
+      "Four-font typographic hierarchy: Cormorant Garamond, Inter, Outfit, IBM Plex Mono",
+      "Fully responsive with scroll-aware frosted-glass navbar and animated mobile menu"
+    ],
+    "year": "2026",
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "GSAP"
+    ],
+    "color": "#C4956A",
+    "accentDark": "#D4A87A",
+    "icon": "🏡",
+    "cover": "https://raw.githubusercontent.com/greengraca/larnossasenhoradaesperanca/master/.portfolio/cover.png",
+    "images": [
+      "https://raw.githubusercontent.com/greengraca/larnossasenhoradaesperanca/master/.portfolio/1.png",
+      "https://raw.githubusercontent.com/greengraca/larnossasenhoradaesperanca/master/.portfolio/2.png",
+      "https://raw.githubusercontent.com/greengraca/larnossasenhoradaesperanca/master/.portfolio/3.png",
+      "https://raw.githubusercontent.com/greengraca/larnossasenhoradaesperanca/master/.portfolio/4.png"
+    ],
+    "links": [
+      {
+        "id": "github",
+        "href": "https://github.com/greengraca/larnossasenhoradaesperanca",
+        "label": "Github"
+      },
+      {
+        "id": "live",
+        "href": "https://larnossasenhoradaesperanca.vercel.app/",
+        "label": "Live"
+      }
+    ],
+    "source": "github"
   }
 ]
