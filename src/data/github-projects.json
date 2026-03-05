@@ -2,7 +2,7 @@
   {
     "id": "taskpad",
     "title": "TaskPad",
-    "subtitle": "Your tasks, everywhere — PWA and desktop in one codebase",
+    "subtitle": "Your tasks, everywhere",
     "description": "A task manager built for speed and real-time collaboration. Local-first optimistic updates keep the UI instant while Firestore syncs everything in the background. Ships as both a PWA on Vercel and a native desktop app via Tauri, from a single React codebase with zero state libraries.",
     "details": [
       "Real-time team collaboration with shared projects, pixel-art avatars and encrypted password vault",
@@ -16,8 +16,7 @@
       "React",
       "Vite",
       "Firebase",
-      "Tauri",
-      "CSS"
+      "Tauri"
     ],
     "color": "#F59E0B",
     "accentDark": "#FBBF24",
@@ -42,7 +41,7 @@
     ],
     "source": "github",
     "titlePT": "TaskPad",
-    "subtitlePT": "As tuas tarefas, em todo o lado — PWA e desktop num só código",
+    "subtitlePT": "As tuas tarefas, em todo o lado",
     "descriptionPT": "Um gestor de tarefas feito para rapidez e colaboração em tempo real. Atualizações otimistas local-first mantêm a interface instantânea enquanto o Firestore sincroniza tudo em segundo plano. Disponível como PWA no Vercel e app nativa de desktop via Tauri, a partir de um único codebase React sem bibliotecas de estado.",
     "detailsPT": [
       "Colaboração em equipa em tempo real com projetos partilhados, avatares pixel-art e cofre de passwords encriptado",
@@ -55,7 +54,7 @@
   {
     "id": "larnossasenhoradaesperanca",
     "title": "Lar Nossa Senhora da Esperança",
-    "subtitle": "Cinematic marketing site for a premium care home",
+    "subtitle": "Cinematic marketing site for a care home",
     "description": "A high-fidelity institutional website for a residential elderly care facility in Portugal. Built with scroll-driven GSAP animations, a warm custom design system, and a stacking card effect that turns service browsing into a tactile experience. Every detail — from the noise texture overlay to the four-font typographic hierarchy — is tuned to convey trust and warmth.",
     "details": [
       "Scroll-triggered stacking card effect with pinned GSAP ScrollTrigger choreography",
@@ -67,7 +66,6 @@
     "tech": [
       "Next.js",
       "React",
-      "TypeScript",
       "Tailwind CSS",
       "GSAP"
     ],
@@ -94,7 +92,7 @@
       }
     ],
     "source": "github",
-    "subtitlePT": "Site cinematográfico para um lar de idosos premium",
+    "subtitlePT": "Site cinematográfico para um lar de idosos",
     "descriptionPT": "Um website institucional de alta fidelidade para um lar residencial de idosos em Portugal. Construído com animações GSAP acionadas por scroll, um sistema de design personalizado e acolhedor, e um efeito de cartões empilháveis que transforma a navegação dos serviços numa experiência tátil. Cada detalhe — da textura de ruído à hierarquia tipográfica de quatro fontes — é afinado para transmitir confiança e calor.",
     "detailsPT": [
       "Efeito de cartões empilháveis acionado por scroll com coreografia GSAP ScrollTrigger",
