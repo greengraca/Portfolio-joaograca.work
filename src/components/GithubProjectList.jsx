@@ -27,7 +27,7 @@ export default function GithubProjectList() {
         </div>
       </AnimatedText>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {projects.map((p, i) => (
           <ProjectCard key={p.id} project={p} index={i} isFullWidth={false} onClick={() => setSelected(p)} />
         ))}
