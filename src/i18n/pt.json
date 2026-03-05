@@ -36,8 +36,8 @@
     "tagline1": "Dev full-stack que passou de mockups em Figma a dashboards em React e bots de Discord. Eu desenho, eu programo, eu faço deploy — e tenho-me interessado por tooling de Cloud e AI.",
     "tagline2": "A pegar em gigs freelance + aberto a posições full-stack React.",
     "scrollCta": "Vê o que fiz",
-    "statusBadge": "// vibe_coding = true",
-    "subtitle": "Vibe Coder Extraordinário"
+    "statusBadge": "// vibe_engineering = true",
+    "subtitle": "Vibe Engineer Extraordinário"
   },
   "sections": {
     "projects": "Trabalho em Destaque",
@@ -89,7 +89,6 @@
       "descPersonality": "Fiz uma máquina que faz arte. SVG puro, resolução infinita, caos determinístico. Cada output é único mas reproduzível.",
       "details": [
         "Pipeline totalmente em SVG",
-        "Controlos de parâmetros",
         "Resultados determinísticos com seed"
       ],
       "links": { "github": "Github" }
