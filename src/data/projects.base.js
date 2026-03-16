@@ -6,8 +6,9 @@ const projects = [
     color: '#6366F1',
     accentDark: '#818CF8',
     icon: '🏆',
-    cover: '/images/projects/ecl-dashboard/1',
+    cover: '/images/projects/ecl-dashboard/cover',
     images: [
+      '/images/projects/ecl-dashboard/1',
       '/images/projects/ecl-dashboard/2',
       '/images/projects/ecl-dashboard/3',
       '/images/projects/ecl-dashboard/4'

@@ -20,8 +20,9 @@
   },
   "ecl-dashboard": {
     "id": "ecl-dashboard",
-    "cover": "/images/projects/ecl-dashboard/1",
+    "cover": "/images/projects/ecl-dashboard/cover",
     "images": [
+      "/images/projects/ecl-dashboard/1",
       "/images/projects/ecl-dashboard/2",
       "/images/projects/ecl-dashboard/3",
       "/images/projects/ecl-dashboard/4"
