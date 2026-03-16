@@ -37,41 +37,6 @@ const projects = [
     ]
   },
   {
-    id: 'gen-art-svg',
-    year: '2021',
-    tech: ['JavaScript', 'SVG'],
-    color: '#F59E0B',
-    accentDark: '#FBBF24',
-    icon: '🎨',
-    cover: null,
-    images: [
-      '/images/projects/gen-art-svg/1',
-      '/images/projects/gen-art-svg/2',
-      '/images/projects/gen-art-svg/3',
-      '/images/projects/gen-art-svg/4',
-      '/images/projects/gen-art-svg/5',
-      '/images/projects/gen-art-svg/6',
-      '/images/projects/gen-art-svg/7'
-    ],
-    links: [{ id: 'github', href: 'https://github.com/greengraca/svg-art-engine' }]
-  },
-  {
-    id: 'mtg-bot',
-    year: '2024–2025',
-    tech: ['Python', 'discord.py', 'MongoDB'],
-    color: '#8B5CF6',
-    accentDark: '#A78BFA',
-    icon: '🎮',
-    cover: '/images/projects/mtg-bot/cover',
-    images: [
-      '/images/projects/mtg-bot/1',
-      '/images/projects/mtg-bot/2',
-      '/images/projects/mtg-bot/3',
-      '/images/projects/mtg-bot/4'
-    ],
-    links: [{ id: 'github', href: 'https://github.com/greengraca/ca_match_logger' }]
-  },
-  {
     id: 'company-site',
     year: '2022',
     tech: ['Figma', 'UI/UX'],
@@ -105,6 +70,41 @@ const projects = [
       '/images/projects/social-designs/7'
     ],
     links: []
+  },
+  {
+    id: 'gen-art-svg',
+    year: '2021',
+    tech: ['JavaScript', 'SVG'],
+    color: '#F59E0B',
+    accentDark: '#FBBF24',
+    icon: '🎨',
+    cover: null,
+    images: [
+      '/images/projects/gen-art-svg/1',
+      '/images/projects/gen-art-svg/2',
+      '/images/projects/gen-art-svg/3',
+      '/images/projects/gen-art-svg/4',
+      '/images/projects/gen-art-svg/5',
+      '/images/projects/gen-art-svg/6',
+      '/images/projects/gen-art-svg/7'
+    ],
+    links: [{ id: 'github', href: 'https://github.com/greengraca/svg-art-engine' }]
+  },
+  {
+    id: 'mtg-bot',
+    year: '2024–2025',
+    tech: ['Python', 'discord.py', 'MongoDB'],
+    color: '#8B5CF6',
+    accentDark: '#A78BFA',
+    icon: '🎮',
+    cover: '/images/projects/mtg-bot/cover',
+    images: [
+      '/images/projects/mtg-bot/1',
+      '/images/projects/mtg-bot/2',
+      '/images/projects/mtg-bot/3',
+      '/images/projects/mtg-bot/4'
+    ],
+    links: [{ id: 'github', href: 'https://github.com/greengraca/ca_match_logger' }]
   }
 ]
 
