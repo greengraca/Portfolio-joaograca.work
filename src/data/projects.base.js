@@ -2,12 +2,16 @@ const projects = [
   {
     id: 'ecl-dashboard',
     year: '2026',
-    tech: ['Next.js', 'React', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Figma'],
+    tech: ['Figma', 'Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     color: '#6366F1',
     accentDark: '#818CF8',
     icon: '🏆',
-    cover: null,
-    images: [],
+    cover: '/images/projects/ecl-dashboard/1',
+    images: [
+      '/images/projects/ecl-dashboard/2',
+      '/images/projects/ecl-dashboard/3',
+      '/images/projects/ecl-dashboard/4'
+    ],
     links: [
       { id: 'figma', href: 'https://www.figma.com/design/Cq2TLsrEIEHzCHbzM1J8Xw/ECL-Dashboard-Wireframes?node-id=0-1&p=f&t=iTLtxv1HjSorJSYH-0' },
       { id: 'github', href: 'https://github.com/greengraca/ecldashboard' }
