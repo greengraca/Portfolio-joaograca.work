@@ -42,7 +42,7 @@ export default function ProjectList() {
 
       <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
         {projects.map((p, i) => (
-          <ProjectCard key={p.id} project={p} index={i} isFullWidth={fullWidthSet.has(i)} onClick={() => setSelected(p)} />
+          <ProjectCard key={p.id} project={p} index={i} isFullWidth={fullWidthSet.has(i)} eager={i === 0} onClick={() => setSelected(p)} />
         ))}
       </div>
 

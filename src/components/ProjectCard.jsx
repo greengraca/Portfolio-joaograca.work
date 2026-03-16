@@ -3,7 +3,7 @@ import useScrollReveal from "../hooks/useScrollReveal"
 import { usePersonality } from "../contexts/PersonalityContext"
 import { SiGithub } from "react-icons/si"
 
-export default function ProjectCard({ project, onClick, index, isFullWidth }) {
+export default function ProjectCard({ project, onClick, index, isFullWidth, eager = false }) {
   const [ref, vis] = useScrollReveal()
   const [hovered, setHovered] = useState(false)
   const { personality } = usePersonality()
@@ -56,7 +56,8 @@ export default function ProjectCard({ project, onClick, index, isFullWidth }) {
           <img
             src={coverSrc}
             alt={project.title}
-            loading="lazy"
+            loading={eager ? "eager" : "lazy"}
+            fetchPriority={eager ? "high" : "auto"}
             style={{
               width: "100%", height: "100%",
               objectFit: "cover", objectPosition: "top",

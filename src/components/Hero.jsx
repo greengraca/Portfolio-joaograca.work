@@ -213,8 +213,12 @@ function HeroPhoto({ personality, mobile = false }) {
             boxShadow: "0 20px 80px rgba(0,0,0,0.4)",
             transform: personality ? "rotate(3deg)" : "none",
           }}>
-          <img src="/profile.jpg" alt="João Graça" className="w-full h-full object-cover"
-            onError={(e) => { e.target.style.display = "none"; e.target.parentElement.style.background = "linear-gradient(135deg, #1e293b, #334155)" }} />
+          <picture>
+            <source type="image/avif" srcSet="/profile-280.avif 280w, /profile-560.avif 560w" sizes="280px" />
+            <source type="image/webp" srcSet="/profile-280.webp 280w, /profile-560.webp 560w" sizes="280px" />
+            <img src="/profile-280.webp" alt="João Graça" className="w-full h-full object-cover" fetchPriority="high" decoding="async"
+              onError={(e) => { e.target.style.display = "none"; e.target.parentElement.style.background = "linear-gradient(135deg, #1e293b, #334155)" }} />
+          </picture>
         </div>
         <div className="absolute -top-3 -right-3 w-20 h-20 rounded-2xl transition-all duration-500"
           style={{ border: `2px solid ${personality ? "rgba(245,158,11,0.3)" : "rgba(59,130,246,0.2)"}`, transform: personality ? "rotate(12deg)" : "rotate(6deg)" }} />
