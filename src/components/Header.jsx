@@ -54,7 +54,7 @@ export default function Header() {
           <div>
             <div className="text-[15px] font-bold leading-tight" style={{ color: "var(--text-primary)" }}>João Graça</div>
             <div className="text-[11px] font-medium" style={{ color: "var(--text-muted)" }}>
-              {personality ? t("personality.subtitle") : "Full-Stack Developer & Designer"}
+              {personality ? t("personality.subtitle") : "Full-Stack Developer & UI/UX Designer"}
             </div>
           </div>
         </div>

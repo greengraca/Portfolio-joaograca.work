@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Cover — Golden Fragments</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #111;
+  }
+
+  .cover {
+    width: 1584px;
+    height: 396px;
+    background: #0a0f14;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Subtle dot grid */
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    z-index: 1;
+  }
+
+  /* Warm ambient glow */
+  .glow-warm {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    top: -350px;
+    right: 200px;
+    background: radial-gradient(circle, rgba(251,191,36,0.07) 0%, rgba(245,158,11,0.03) 40%, transparent 70%);
+    z-index: 1;
+  }
+
+  .glow-red {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: 400px;
+    background: radial-gradient(circle, rgba(239,68,68,0.04) 0%, transparent 70%);
+    z-index: 1;
+  }
+
+  /* Diagonal lines */
+  .diagonals {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .diag-line {
+    position: absolute;
+    width: 1px;
+    height: 800px;
+    transform: rotate(-25deg);
+    transform-origin: top left;
+  }
+
+  .diag-line:nth-child(1) { left: 30%; top: -100px; background: linear-gradient(180deg, transparent, rgba(251,191,36,0.06), transparent); }
+  .diag-line:nth-child(2) { left: 45%; top: -100px; background: linear-gradient(180deg, transparent, rgba(251,191,36,0.04), transparent); }
+  .diag-line:nth-child(3) { left: 60%; top: -100px; background: linear-gradient(180deg, transparent, rgba(239,68,68,0.04), transparent); }
+  .diag-line:nth-child(4) { left: 75%; top: -100px; background: linear-gradient(180deg, transparent, rgba(251,191,36,0.03), transparent); }
+  .diag-line:nth-child(5) { left: 90%; top: -100px; background: linear-gradient(180deg, transparent, rgba(245,158,11,0.05), transparent); }
+
+  /* ═══ LEFT CONTENT — bigger ═══ */
+  .left-content {
+    position: absolute;
+    z-index: 10;
+    left: 500px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .line-2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 80px;
+    font-weight: 400;
+    color: #f1f5f9;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .line-3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 80px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #fbbf24, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 10px;
+  }
+
+  .subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #64748b;
+    margin-top: 10px;
+  }
+
+  /* ═══ FLOATING CARD FRAGMENTS ═══ */
+  .frag {
+    position: absolute;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    z-index: 8;
+  }
+
+  /* Skeleton UI card — top right */
+  .frag-skeleton {
+    width: 220px;
+    height: 140px;
+    top: 90px;
+    right: 80px;
+    background: rgba(255,255,255,0.02);
+    border-color: rgba(251,191,36,0.12);
+  }
+
+  .frag-skeleton-inner {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .frag-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .frag-bar.gold { background: linear-gradient(90deg, rgba(251,191,36,0.3), rgba(251,191,36,0.08)); }
+  .frag-bar.short { width: 60%; }
+  .frag-bar.med { width: 80%; }
+
+  /* Code card 1 — center right */
+  .frag-code-card {
+    width: 180px;
+    top: 50px;
+    right: 340px;
+    background: rgba(255,255,255,0.015);
+    padding: 16px 18px;
+  }
+
+  .frag-code-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.7;
+    color: rgba(251,191,36,0.35);
+  }
+
+  /* Code card 2 — bottom right */
+  .frag-code-card-2 {
+    width: 190px;
+    bottom: 30px;
+    right: 120px;
+    background: rgba(255,255,255,0.01);
+    padding: 16px 18px;
+  }
+
+  /* Small accent card — far right edge */
+  .frag-accent {
+    width: 100px;
+    height: 70px;
+    bottom: 60px;
+    right: 340px;
+    background: rgba(255,255,255,0.01);
+    border-color: rgba(251,191,36,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .frag-accent-inner {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.6;
+    color: rgba(251,191,36,0.25);
+    text-align: center;
+  }
+
+  /* Connecting dots */
+  .dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(251,191,36,0.35);
+    z-index: 9;
+  }
+
+  .dot-1 { top: 44px; right: 330px; }
+  .dot-2 { bottom: 55px; right: 320px; }
+  .dot-3 { top: 170px; right: 530px; }
+  .dot-4 { top: 28px; right: 530px; }
+  .dot-5 { bottom: 30px; right: 325px; }
+
+  /* ═══ BOTTOM ═══ */
+  .gold-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 10%, #fbbf24 35%, #ef4444 65%, transparent 90%);
+    opacity: 0.5;
+    z-index: 10;
+  }
+
+  .url {
+    position: absolute;
+    bottom: 26px;
+    left: 500px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748b;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .url-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fbbf24;
+    animation: pulseDot 2s infinite;
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="glow-warm"></div>
+    <div class="glow-red"></div>
+
+    <div class="diagonals">
+      <div class="diag-line"></div>
+      <div class="diag-line"></div>
+      <div class="diag-line"></div>
+      <div class="diag-line"></div>
+      <div class="diag-line"></div>
+    </div>
+
+    <!-- Left text -->
+    <div class="left-content">
+      <div class="line-2">I design &amp;</div>
+      <div class="line-3">build things.</div>
+      <div class="subtitle">Full-Stack Developer · UI/UX Designer</div>
+    </div>
+
+    <!-- Floating fragments — spread across right half -->
+
+    <!-- Skeleton UI card (top right) -->
+    <div class="frag frag-skeleton">
+      <div class="frag-skeleton-inner">
+        <div class="frag-bar gold"></div>
+        <div class="frag-bar short"></div>
+        <div class="frag-bar med"></div>
+        <div class="frag-bar short"></div>
+        <div class="frag-bar"></div>
+      </div>
+    </div>
+
+    <!-- Code card 1 -->
+    <div class="frag frag-code-card">
+      <div class="frag-code-line">const build = () =&gt; {</div>
+      <div class="frag-code-line">&nbsp; return create({</div>
+      <div class="frag-code-line">&nbsp;&nbsp;&nbsp; design: true,</div>
+      <div class="frag-code-line">&nbsp;&nbsp;&nbsp; code: true</div>
+      <div class="frag-code-line">&nbsp; });</div>
+      <div class="frag-code-line">};</div>
+    </div>
+
+    <!-- Code card 2 (bottom right) -->
+    <div class="frag frag-code-card-2">
+      <div class="frag-code-line">// ship it</div>
+      <div class="frag-code-line">export default</div>
+      <div class="frag-code-line">&nbsp; Portfolio;</div>
+    </div>
+
+    <!-- Small accent card -->
+    <div class="frag frag-accent">
+      <div class="frag-accent-inner">&lt;Design /&gt;<br/>fn build()<br/>ship();_</div>
+    </div>
+
+    <!-- Connecting dots -->
+    <div class="dot dot-1"></div>
+    <div class="dot dot-2"></div>
+    <div class="dot dot-3"></div>
+    <div class="dot dot-4"></div>
+    <div class="dot dot-5"></div>
+
+    <div class="url"><span class="url-dot"></span> joaograca.work</div>
+    <div class="gold-strip"></div>
+  </div>
+</body>
+</html>

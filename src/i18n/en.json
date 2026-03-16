@@ -22,7 +22,7 @@
     "title": "Building products from",
     "titleHighlight": "wireframe to deployment",
     "tagline1": "Full-stack React developer with UI/UX and product design skills. I take projects from concept through Figma to production code — focused on fast, maintainable builds and clean architecture, with a growing interest in Cloud & AI workflows.",
-    "tagline2": "Open to freelance work and full-stack React roles (remote or Portugal).",
+    "tagline2": "Open to UI/UX and full-stack roles and freelance work (remote or Portugal).",
     "scrollCta": "See my work",
     "statusBadge": "Available for opportunities"
   },
@@ -56,6 +56,21 @@
     "moreProjectsParagraphPersonality": "The rest of the iceberg. These live on my GitHub."
   },
   "projects": {
+    "ecl-dashboard": {
+      "title": "ECL Team Dashboard",
+      "subtitle": "Full-stack ops platform · In Progress",
+      "description": "Complete team dashboard for the European cEDH League — replacing scattered spreadsheets and manual workflows with a single hub for subscriber management, finances, player standings, prizes, and audit trails.",
+      "descPersonality": "Our league ran on spreadsheets, Notion pages, and vibes. So I built a full dashboard: subscribers, finances, player stats, prizes, shipping — everything the team needs in one place. Still cooking.",
+      "details": [
+        "Subscriber management with Patreon & Ko-fi sync",
+        "Finance module with P&L charts and profit splits",
+        "Player standings with TopDeck integration and bracket seeding",
+        "Prize tracking with auto-populate from results and shipping status",
+        "Full audit trail for team accountability",
+        "Discord OAuth with role-based access control"
+      ],
+      "links": { "figma": "Figma", "github": "Github" }
+    },
     "crypto-tool": {
       "title": "Crypto Portfolio Tool",
       "subtitle": "API-based tracker",

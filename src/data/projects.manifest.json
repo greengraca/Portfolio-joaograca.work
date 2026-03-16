@@ -18,6 +18,15 @@
       "/images/projects/crypto-tool/frogfolio-search"
     ]
   },
+  "ecl-dashboard": {
+    "id": "ecl-dashboard",
+    "cover": "/images/projects/ecl-dashboard/1",
+    "images": [
+      "/images/projects/ecl-dashboard/2",
+      "/images/projects/ecl-dashboard/3",
+      "/images/projects/ecl-dashboard/4"
+    ]
+  },
   "gen-art-svg": {
     "id": "gen-art-svg",
     "cover": "/images/projects/gen-art-svg/1",

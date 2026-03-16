@@ -1,5 +1,19 @@
 const projects = [
   {
+    id: 'ecl-dashboard',
+    year: '2026',
+    tech: ['Next.js', 'React', 'TypeScript', 'MongoDB', 'Tailwind CSS', 'Figma'],
+    color: '#6366F1',
+    accentDark: '#818CF8',
+    icon: '🏆',
+    cover: null,
+    images: [],
+    links: [
+      { id: 'figma', href: 'https://www.figma.com/design/Cq2TLsrEIEHzCHbzM1J8Xw/ECL-Dashboard-Wireframes?node-id=0-1&p=f&t=iTLtxv1HjSorJSYH-0' },
+      { id: 'github', href: 'https://github.com/greengraca/ecldashboard' }
+    ]
+  },
+  {
     id: 'crypto-tool',
     year: '2021–2022',
     tech: ['React', 'Node.js', 'APIs', 'Figma'],

@@ -56,6 +56,21 @@
     "moreProjectsParagraphPersonality": "O resto do iceberg. Estes vivem no meu GitHub."
   },
   "projects": {
+    "ecl-dashboard": {
+      "title": "ECL Team Dashboard",
+      "subtitle": "Plataforma de operações full-stack · Em Progresso",
+      "description": "Dashboard completo para a equipa da European cEDH League — substitui spreadsheets dispersas e processos manuais por um único hub para gestão de subscritores, finanças, classificações de jogadores, prémios e registos de auditoria.",
+      "descPersonality": "A nossa liga funcionava com spreadsheets, Notion e boa vontade. Então construí um dashboard completo: subscritores, finanças, estatísticas, prémios, envios — tudo o que a equipa precisa num só sítio. Ainda a cozinhar.",
+      "details": [
+        "Gestão de subscritores com sync de Patreon e Ko-fi",
+        "Módulo financeiro com gráficos de P&L e divisão de lucros",
+        "Classificações com integração TopDeck e seeding de brackets",
+        "Tracking de prémios com auto-populate de resultados e estado de envio",
+        "Registo completo de auditoria para responsabilidade da equipa",
+        "Discord OAuth com controlo de acesso baseado em roles"
+      ],
+      "links": { "figma": "Figma", "github": "Github" }
+    },
     "crypto-tool": {
       "title": "Ferramenta de Portefólio Cripto",
       "subtitle": "Tracker baseado em APIs",
